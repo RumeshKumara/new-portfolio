@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Twitter, Mail, ChevronDown } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { useState, useEffect } from "react";
 
@@ -48,6 +48,17 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
       });
     }
     onContact?.();
+  };
+
+  const handleScrollToAbout = () => {
+    const element = document.getElementById("about");
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -123,7 +134,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-            className="flex items-center justify-center gap-6 pt-8"
+            className="flex items-center justify-center gap-6 pt-2"
           >
             <a
               href={SOCIAL_LINKS.github}
@@ -159,6 +170,21 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             >
               <Mail size={24} />
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+            className="pt-2"
+          >
+            <button
+              onClick={handleScrollToAbout}
+              className="animate-bounce text-accent-600 hover:text-black transition-colors"
+              aria-label="Scroll to About section"
+            >
+              <ChevronDown size={32} />
+            </button>
           </motion.div>
         </div>
       </div>

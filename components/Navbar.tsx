@@ -65,7 +65,7 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center" aria-label="Home">
+          <Link href="/" className="flex items-center cursor-pointer" aria-label="Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <Image
               src="/logo.png"
               alt="RK Logo"
@@ -103,7 +103,7 @@ export default function Navbar() {
             
             {/* Blog Link */}
             <a
-              href="https://medium.com/@rumeshkumara"
+              href="https://medium.com/@rumeshk066"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 text-sm font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
@@ -153,7 +153,7 @@ export default function Navbar() {
               
               {/* Blog Link Mobile */}
               <a
-                href="https://medium.com/@rumeshkumara"
+                href="https://medium.com/@rumeshk066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all w-fit focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
