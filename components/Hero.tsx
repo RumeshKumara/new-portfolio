@@ -1,0 +1,98 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Download } from "lucide-react";
+
+interface HeroProps {
+  onViewProjects?: () => void;
+  onContact?: () => void;
+}
+
+export default function Hero({ onViewProjects, onContact }: HeroProps) {
+  const handleViewProjects = () => {
+    const element = document.getElementById("projects");
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+    onViewProjects?.();
+  };
+
+  const handleContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+    onContact?.();
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center pt-20">
+      <div className="container-custom">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h1 className="text-6xl md:text-8xl font-bold text-black leading-tight">
+              Rumesh Kumara
+            </h1>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
+            <h2 className="text-2xl md:text-4xl font-medium text-accent-700">
+              Senior Frontend Engineer & UI/UX Designer
+            </h2>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            className="text-lg md:text-xl text-accent-600 max-w-2xl mx-auto"
+          >
+            Crafting exceptional digital experiences with modern technologies.
+            Specialized in React, Next.js, and TypeScript.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+          >
+            <button
+              onClick={handleViewProjects}
+              className="group px-8 py-4 bg-black text-white rounded-md hover:bg-accent-800 transition-all flex items-center gap-2"
+            >
+              View Projects
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </button>
+            <button
+              onClick={handleContact}
+              className="px-8 py-4 border-2 border-black text-black rounded-md hover:bg-black hover:text-white transition-all flex items-center gap-2"
+            >
+              Download CV
+              <Download size={20} />
+            </button>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
