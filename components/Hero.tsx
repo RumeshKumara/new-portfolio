@@ -1,15 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { useState, useEffect } from "react";
 
 interface HeroProps {
   onViewProjects?: () => void;
   onContact?: () => void;
 }
 
+const jobTitles = [
+  "Software Engineer",
+  "Full Stack Developer",
+  "UI/UX Designer"
+];
+
 export default function Hero({ onViewProjects, onContact }: HeroProps) {
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % jobTitles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
   const handleViewProjects = () => {
     const element = document.getElementById("projects");
     if (element) {
@@ -52,10 +68,20 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="h-16 md:h-20 flex items-center justify-center"
           >
-            <h2 className="text-2xl md:text-4xl font-medium text-accent-700">
-              Senior Frontend Engineer & UI/UX Designer
-            </h2>
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={currentTitleIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="text-2xl md:text-4xl font-medium text-accent-700"
+              >
+                {jobTitles[currentTitleIndex]}
+              </motion.h2>
+            </AnimatePresence>
           </motion.div>
 
           <motion.p
