@@ -101,7 +101,7 @@ export default function Navbar() {
               title="Visit my blog"
             >
               <BookOpen size={18} />
-              <span>Blog</span>
+              <span>Blogs</span>
             </a>
           </div>
 
@@ -150,7 +150,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all w-fit focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               >
                 <BookOpen size={20} />
-                <span>Blog</span>
+                <span>Blogs</span>
               </a>
             </div>
           </motion.div>

@@ -1,18 +1,46 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { projectsData } from "@/lib/data";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 
+type Category = "All" | "UI/UX" | "Web App" | "Mobile" | "Others";
+
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [selectedCategory, setSelectedCategory] = useState<Category>("All");
+
+  const categories: Category[] = ["All", "UI/UX", "Web App", "Mobile", "Others"];
+
+  const filteredProjects = selectedCategory === "All" 
+    ? projectsData 
+    : projectsData.filter(project => project.category === selectedCategory);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projectsData.map((project, index) => (
+    <div className="space-y-8">
+      {/* Category Filter Buttons */}
+      <div className="flex flex-wrap justify-center gap-4">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
+              selectedCategory === category
+                ? "bg-accent-800 text-white shadow-lg"
+                : "bg-accent-100 text-accent-800 hover:bg-accent-200"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {filteredProjects.map((project, index) => (
         <motion.div
           key={index}
           ref={ref}
@@ -77,6 +105,7 @@ export default function Projects() {
           </div>
         </motion.div>
       ))}
+      </div>
     </div>
   );
 }

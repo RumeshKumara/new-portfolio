@@ -1,35 +1,77 @@
-export const skillsData = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Vue.js",
-  "Node.js",
-  "Express",
-  "Tailwind CSS",
-  "CSS3",
-  "HTML5",
-  "Git",
-  "Docker",
-  "MySQL",
-  "MongoDB",
-  "PostgreSQL",
-  "GraphQL",
-  "REST API",
-  "Spring Boot",
-  "Java",
-  "Python",
-  "Figma",
-  "Adobe XD",
-  "Framer Motion",
-  "Redux",
-  "Zustand",
+export interface Skill {
+  name: string;
+  level: number; // 0-100
+  category?: string;
+  logo?: string;
+}
+
+export const skillsData: Skill[] = [
+  { name: "JavaScript", level: 95, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", level: 90, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "React", level: 95, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", level: 92, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Vue.js", level: 80, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Node.js", level: 88, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express", level: 85, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Tailwind CSS", level: 95, category: "Styling", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "CSS3", level: 90, category: "Styling", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "HTML5", level: 95, category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "Git", level: 90, category: "Tools", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "Docker", level: 75, category: "DevOps", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "MySQL", level: 80, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "MongoDB", level: 85, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", level: 80, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "GraphQL", level: 78, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+  { name: "REST API", level: 92, category: "Backend" },
+  { name: "Spring Boot", level: 75, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+  { name: "Java", level: 82, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Python", level: 80, category: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Figma", level: 85, category: "Design", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Adobe XD", level: 80, category: "Design", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" },
+  { name: "Framer Motion", level: 88, category: "Animation" },
+  { name: "Redux", level: 85, category: "State Management", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+  { name: "Zustand", level: 82, category: "State Management" },
+];
+
+// Programming Languages
+export const programmingLanguages: Skill[] = [
+  { name: "JavaScript", level: 95, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", level: 90, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Java", level: 82, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Python", level: 80, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "HTML5", level: 95, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3", level: 90, category: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+];
+
+// Technologies & Frameworks
+export const technologies: Skill[] = [
+  { name: "React", level: 95, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", level: 92, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Vue.js", level: 80, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Node.js", level: 88, category: "Runtime", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express", level: 85, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Tailwind CSS", level: 95, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Spring Boot", level: 75, category: "Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+  { name: "Redux", level: 85, category: "Library", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+  { name: "MongoDB", level: 85, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", level: 80, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "MySQL", level: 80, category: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "Docker", level: 75, category: "DevOps", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "Git", level: 90, category: "Tools", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "GraphQL", level: 78, category: "API", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+  { name: "Figma", level: 85, category: "Design", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Webpack", level: 78, category: "Build Tool", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" },
+  { name: "Vite", level: 85, category: "Build Tool", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
+  { name: "Jest", level: 80, category: "Testing", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+  { name: "AWS", level: 70, category: "Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "Kubernetes", level: 65, category: "DevOps", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
 ];
 
 export interface Project {
   title: string;
   description: string;
   technologies: string[];
+  category: "UI/UX" | "Web App" | "Mobile" | "Others";
   liveUrl?: string;
   githubUrl?: string;
 }
@@ -40,6 +82,7 @@ export const projectsData: Project[] = [
     description:
       "A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB"],
+    category: "Web App",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/ecommerce",
   },
@@ -48,6 +91,7 @@ export const projectsData: Project[] = [
     description:
       "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
     technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "Redux"],
+    category: "Web App",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/task-app",
   },
@@ -56,6 +100,7 @@ export const projectsData: Project[] = [
     description:
       "Analytics dashboard for social media metrics with beautiful charts, real-time data visualization, and export functionality.",
     technologies: ["Next.js", "TypeScript", "Chart.js", "Tailwind CSS"],
+    category: "UI/UX",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/dashboard",
   },
@@ -64,6 +109,7 @@ export const projectsData: Project[] = [
     description:
       "Beautiful weather application with location-based forecasts, detailed weather information, and interactive maps.",
     technologies: ["React", "TypeScript", "OpenWeather API", "CSS3"],
+    category: "Mobile",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/weather-app",
   },
@@ -72,6 +118,7 @@ export const projectsData: Project[] = [
     description:
       "Content management system for portfolio websites with drag-and-drop editor, SEO optimization, and responsive templates.",
     technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    category: "Others",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/portfolio-cms",
   },
@@ -80,6 +127,7 @@ export const projectsData: Project[] = [
     description:
       "Comprehensive fitness tracking application with workout plans, progress tracking, nutrition logging, and goal setting.",
     technologies: ["React Native", "Node.js", "MongoDB", "Express"],
+    category: "Mobile",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },
