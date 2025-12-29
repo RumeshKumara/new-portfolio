@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -64,8 +65,16 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-black">
-            RK
+          <Link href="/" className="flex items-center" aria-label="Home">
+            <Image
+              src="/logo.png"
+              alt="RK Logo"
+              width={80}
+              height={80}
+              style={{ height: '80px', width: 'auto' }}
+              priority
+              unoptimized
+            />
           </Link>
 
           {/* Desktop Navigation */}
