@@ -62,11 +62,11 @@ export default function InfiniteScroll({ items, speed = 50, showLogos = false, d
             return (
               <motion.div
                 key={index}
-                className="px-8 py-4 bg-white border-2 border-accent-200 rounded-lg text-black font-medium whitespace-nowrap text-lg hover:border-black hover:shadow-lg transition-all"
+                className="px-8 py-4 bg-white border-2 border-accent-200 rounded-full text-black font-medium whitespace-nowrap text-lg  hover:shadow-lg transition-all"
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="flex items-center gap-3">
-                  {showLogos && hasLogo && (
+                  {showLogos && hasLogo && 'logo' in item && item.logo && (
                     <div className="w-8 h-8 relative flex-shrink-0">
                       <Image
                         src={item.logo}
