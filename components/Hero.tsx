@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 interface HeroProps {
   onViewProjects?: () => void;
@@ -90,6 +91,48 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
               Download CV
               <Download size={20} />
             </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+            className="flex items-center justify-center gap-6 pt-8"
+          >
+            <a
+              href={SOCIAL_LINKS.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-600 hover:text-black transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={24} />
+            </a>
+            <a
+              href={SOCIAL_LINKS.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-600 hover:text-black transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a
+              href={SOCIAL_LINKS.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-600 hover:text-black transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter size={24} />
+            </a>
+            <a
+              href={SOCIAL_LINKS.email}
+              className="text-accent-600 hover:text-black transition-colors"
+              aria-label="Email"
+            >
+              <Mail size={24} />
+            </a>
           </motion.div>
         </div>
       </div>

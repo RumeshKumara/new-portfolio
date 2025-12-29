@@ -92,12 +92,12 @@ export default function Navbar() {
               </a>
             ))}
             
-            {/* Blog Link */}
+            {/* Blog Link - Focused */}
             <a
               href="https://medium.com/@rumeshkumara"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-accent-600 hover:text-black transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-accent-100 text-black hover:bg-accent-200 rounded-full transition-all hover:scale-105 border border-accent-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
               title="Visit my blog"
             >
               <BookOpen size={18} />
@@ -153,12 +153,12 @@ export default function Navbar() {
                 </a>
               ))}
               
-              {/* Blog Link Mobile */}
+              {/* Blog Link Mobile - Focused */}
               <a
                 href="https://medium.com/@rumeshkumara"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 py-2 text-lg font-medium text-accent-600"
+                className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-accent-100 text-black hover:bg-accent-200 rounded-full transition-all w-fit border border-accent-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
               >
                 <BookOpen size={20} />
                 <span>Blog</span>
