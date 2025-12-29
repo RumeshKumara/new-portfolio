@@ -76,7 +76,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           >
             <button
               onClick={handleViewProjects}
-              className="group px-8 py-4 bg-black text-white rounded-md hover:bg-accent-800 transition-all flex items-center gap-2"
+              className="group px-8 py-4 bg-black text-white rounded-full hover:bg-accent-800 transition-all flex items-center gap-2"
             >
               View Projects
               <ArrowRight
@@ -86,7 +86,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             </button>
             <button
               onClick={handleContact}
-              className="px-8 py-4 border-2 border-black text-black rounded-md hover:bg-black hover:text-white transition-all flex items-center gap-2"
+              className="px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all flex items-center gap-2"
             >
               Download CV
               <Download size={20} />

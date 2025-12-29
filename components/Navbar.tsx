@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, BookOpen, Download } from "lucide-react";
+import { Menu, X, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -92,27 +92,16 @@ export default function Navbar() {
               </a>
             ))}
             
-            {/* Blog Link - Focused */}
+            {/* Blog Link */}
             <a
               href="https://medium.com/@rumeshkumara"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-accent-100 text-black hover:bg-accent-200 rounded-full transition-all hover:scale-105 border border-accent-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              className="flex items-center gap-2 px-6 py-3 text-sm font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
               title="Visit my blog"
             >
               <BookOpen size={18} />
               <span>Blog</span>
-            </a>
-            
-            {/* Download CV Button */}
-            <a
-              href="/cv.pdf"
-              download
-              className="flex items-center gap-2 px-6 py-4 bg-black text-white rounded-full hover:bg-accent-800 transition-colors text-sm font-medium"
-              title="Download CV"
-            >
-              <Download size={18} />
-              <span>Download CV</span>
             </a>
           </div>
 
@@ -153,25 +142,15 @@ export default function Navbar() {
                 </a>
               ))}
               
-              {/* Blog Link Mobile - Focused */}
+              {/* Blog Link Mobile */}
               <a
                 href="https://medium.com/@rumeshkumara"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-accent-100 text-black hover:bg-accent-200 rounded-full transition-all w-fit border border-accent-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all w-fit focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               >
                 <BookOpen size={20} />
                 <span>Blog</span>
-              </a>
-              
-              {/* Download CV Button Mobile */}
-              <a
-                href="/cv.pdf"
-                download
-                className="flex items-center gap-2 px-6 py-4 bg-black text-white rounded-full hover:bg-accent-800 transition-colors text-lg font-medium w-fit"
-              >
-                <Download size={20} />
-                <span>Download CV</span>
               </a>
             </div>
           </motion.div>
