@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Twitter, Mail, ChevronDown } from "lucide-react";
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTypescript, SiNextdotjs, SiSpringboot, SiExpress, SiMysql, SiFigma } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { useState, useEffect } from "react";
 
@@ -15,6 +17,70 @@ const jobTitles = [
   "Full Stack Developer",
   "UI/UX Designer"
 ];
+
+const programmingIcons = [
+  SiHtml5,      // HTML
+  SiCss3,       // CSS
+  SiJavascript, // JavaScript
+  SiReact,      // React
+  SiTypescript, // TypeScript
+  SiNextdotjs,  // Next.js
+  SiSpringboot, // Spring Boot
+  FaJava,       // Java
+  SiExpress,    // Express
+  SiMysql,      // MySQL
+  SiFigma       // Figma
+];
+
+const FloatingIcon = ({ Icon, delay }: { Icon: any; delay: number }) => {
+  const randomX = Math.random() * 100;
+  const randomY = Math.random() * 100;
+  const randomDuration = 20 + Math.random() * 15;
+  const randomRotation = Math.random() > 0.5 ? 360 : -360;
+  const randomScale = 0.8 + Math.random() * 0.4;
+
+  return (
+    <motion.div
+      className="absolute text-accent-600"
+      style={{ transformOrigin: 'center' }}
+      initial={{
+        x: `${randomX}vw`,
+        y: `${randomY}vh`,
+        scale: randomScale,
+        rotate: 0,
+        opacity: 0
+      }}
+      animate={{
+        x: [
+          `${randomX}vw`,
+          `${randomX + 15 + Math.random() * 10}vw`,
+          `${randomX - 5 - Math.random() * 10}vw`,
+          `${randomX + 8 + Math.random() * 5}vw`,
+          `${randomX}vw`
+        ],
+        y: [
+          `${randomY}vh`,
+          `${randomY - 20 - Math.random() * 15}vh`,
+          `${randomY + 10 + Math.random() * 10}vh`,
+          `${randomY - 5 - Math.random() * 5}vh`,
+          `${randomY}vh`
+        ],
+        rotate: [0, randomRotation * 0.5, randomRotation, randomRotation * 1.5, randomRotation * 2],
+        scale: [randomScale, randomScale * 1.1, randomScale * 0.9, randomScale * 1.05, randomScale],
+        opacity: [0, 0.08, 0.12, 0.08, 0], // Smooth fade in/out with peak visibility
+      }}
+      transition={{
+        duration: randomDuration,
+        repeat: Infinity,
+        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth easing
+        delay: delay,
+        times: [0, 0.25, 0.5, 0.75, 1], // Control timing of keyframes
+      }}
+    >
+      <Icon size={32} />
+    </motion.div>
+  );
+};
 
 export default function Hero({ onViewProjects, onContact }: HeroProps) {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -62,8 +128,31 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center pt-20">
-      <div className="container-custom">
+    <div className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+      {/* Background Animation */}
+      <div className="absolute inset-0 pointer-events-none">
+        {programmingIcons.map((Icon, index) => (
+          <FloatingIcon key={index} Icon={Icon} delay={index * 0.8} />
+        ))}
+        {programmingIcons.map((Icon, index) => (
+          <FloatingIcon key={`duplicate-${index}`} Icon={Icon} delay={(index + 6) * 0.7} />
+        ))}
+        {programmingIcons.map((Icon, index) => (
+          <FloatingIcon key={`third-${index}`} Icon={Icon} delay={(index + 11) * 0.6} />
+        ))}
+      </div>
+
+      <motion.div
+        className="container-custom relative z-10"
+        animate={{
+          y: [0, -5, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
+      >
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -187,7 +276,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             </button>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
