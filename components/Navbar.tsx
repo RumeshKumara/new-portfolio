@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,14 +14,19 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
+
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
+
+      setIsScrolled(window.scrollY > 50);
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -61,43 +65,56 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-accent-200">
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 flex justify-center">
+      <motion.div
+        layout
+        transition={{ type: "spring", stiffness: 400, damping: 35 }}
+        className={`relative star-border bg-white/90 backdrop-blur-md rounded-full shadow-lg shadow-black/5 ${
+          isScrolled ? "max-w-fit" : "max-w-6xl w-full"
+        }`}
+      >
+
+        <div className={`flex items-center justify-between px-8 ${
+          isScrolled ? "h-14" : "h-16"
+        } transition-all duration-300`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center cursor-pointer" aria-label="Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-            <Image
-              src="/logo.png"
-              alt="RK Logo"
-              width={80}
-              height={80}
-              style={{ height: '80px', width: 'auto' }}
-              priority
-              unoptimized
-            />
-          </Link>
+          <AnimatePresence mode="popLayout">
+            {!isScrolled && (
+              <motion.div
+                initial={{ opacity: 0, width: 0, filter: "blur(4px)" }}
+                animate={{ opacity: 1, width: "auto", filter: "blur(0px)" }}
+                exit={{ opacity: 0, width: 0, filter: "blur(4px)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="overflow-hidden"
+              >
+                <Link href="/" className="flex items-center cursor-pointer mr-8" aria-label="Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                  <span className="text-2xl font-bold text-black whitespace-nowrap">RK</span>
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleClick(e, item.href)}
-                className={`text-sm font-medium transition-colors relative ${
+                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-200 whitespace-nowrap ${
                   activeSection === item.href.slice(1)
                     ? "text-black"
-                    : "text-accent-600 hover:text-black"
+                    : "text-accent-500 hover:text-black"
                 }`}
               >
-                {item.name}
                 {activeSection === item.href.slice(1) && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute -bottom-[21px] left-0 right-0 h-[2px] bg-black"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  <motion.span
+                    layoutId="navActiveIndicator"
+                    className="absolute inset-0 bg-accent-100 rounded-full -z-10"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
+                {item.name}
               </a>
             ))}
             
@@ -106,10 +123,12 @@ export default function Navbar() {
               href="https://medium.com/@rumeshk066"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 text-sm font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              className={`flex items-center gap-2 text-sm font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
+                isScrolled ? "px-5 py-2" : "px-6 py-2.5"
+              }`}
               title="Visit my blog"
             >
-              <BookOpen size={18} />
+              <BookOpen size={16} />
               <span>Blogs</span>
             </a>
           </div>
@@ -123,32 +142,35 @@ export default function Navbar() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-accent-200"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="md:hidden absolute left-4 right-4 mt-2 bg-white rounded-2xl shadow-lg border border-accent-100 overflow-hidden"
           >
-            <div className="container-custom py-4 space-y-4">
-              {navItems.map((item) => (
-                <a
+            <div className="px-6 py-4 space-y-1">
+              {navItems.map((item, index) => (
+                <motion.a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className={`block py-2 text-lg font-medium transition-colors ${
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05, type: "spring", stiffness: 400, damping: 30 }}
+                  className={`block py-2.5 px-4 rounded-xl text-lg font-medium transition-colors ${
                     activeSection === item.href.slice(1)
-                      ? "text-black"
-                      : "text-accent-600"
+                      ? "text-black bg-accent-100"
+                      : "text-accent-500 hover:text-black hover:bg-accent-50"
                   }`}
                 >
                   {item.name}
-                </a>
+                </motion.a>
               ))}
               
               {/* Blog Link Mobile */}
@@ -156,7 +178,7 @@ export default function Navbar() {
                 href="https://medium.com/@rumeshk066"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all w-fit focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                className="flex items-center gap-2 px-6 py-3 text-lg font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all w-fit"
               >
                 <BookOpen size={20} />
                 <span>Blogs</span>
