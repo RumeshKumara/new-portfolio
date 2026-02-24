@@ -160,7 +160,7 @@ function ProjectCard({
       exit={{ opacity: 0, y: -20, scale: 0.96 }}
       whileHover={{ scale: 1.03, y: -6 }}
       transition={{ duration: 0.45, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.28)] hover:shadow-[0_35px_90px_rgba(0,0,0,0.50)] cursor-default"
+      className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.28)] hover:shadow-[0_35px_90px_rgba(0,0,0,0.50)] cursor-default"
       style={{ willChange: "transform", padding: hovered ? "1px" : "2px", transition: "padding 0.3s ease" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
