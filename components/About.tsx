@@ -9,8 +9,29 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="container-custom">
+    <section id="about" className="py-24 bg-white relative overflow-hidden">
+      {/* Net / grid background */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+        }}
+      />
+      {/* Radial fade so edges blend into white */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, white 100%)",
+        }}
+      />
+      <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
