@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { projectsData } from "@/lib/data";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 type Category = "All" | "UI/UX" | "Web App" | "Mobile" | "Others";
 
@@ -146,74 +147,106 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 40, scale: 0.96 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.96 }}
                 exit={{ opacity: 0, y: -20, scale: 0.96 }}
-                transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="group relative flex flex-col bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-gray-400 hover:-translate-y-1 transition-all duration-300"
+                whileHover={{ scale: 1.03, y: -6 }}
+                transition={{ duration: 0.45, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="group relative rounded-2xl p-[2px] overflow-hidden shadow-sm hover:shadow-2xl"
+                style={{ willChange: "transform" }}
               >
-                {/* ── Card top accent bar ── */}
-                <div className="h-1 w-full bg-gradient-to-r from-gray-800 via-gray-500 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* ── Image / Placeholder ── */}
-                <div className="relative h-44 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden flex items-center justify-center">
-                  {/* Large initial letter */}
-                  <span className="text-7xl font-black text-gray-200 select-none group-hover:scale-110 transition-transform duration-500">
-                    {project.title.charAt(0)}
-                  </span>
-                  {/* Category badge */}
-                  <span className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold ${categoryAccent[project.category] ?? "bg-gray-100 text-gray-600"}`}>
-                    {project.category}
-                  </span>
+                {/* ── Spinning gradient border (visible on hover) ── */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  aria-hidden
+                >
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] aspect-square animate-spin-slow"
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, transparent 0%, #6366f1 20%, #a855f7 45%, #06b6d4 65%, #6366f1 80%, transparent 100%)",
+                    }}
+                  />
                 </div>
 
-                {/* ── Content ── */}
-                <div className="flex flex-col flex-1 p-5 gap-3">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-black transition-colors leading-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
-                    {project.description}
-                  </p>
+                {/* ── Static border fallback (non-hover) ── */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl border border-gray-200/80 group-hover:opacity-0 transition-opacity duration-300" aria-hidden />
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 4).map((tech, ti) => (
-                      <span
-                        key={ti}
-                        className="px-2.5 py-1 text-[11px] font-medium bg-gray-100 text-gray-600 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2.5 py-1 text-[11px] font-medium bg-gray-100 text-gray-500 rounded-full">
-                        +{project.technologies.length - 4}
+                {/* ── Inner card ── */}
+                <div className="relative flex flex-col bg-white rounded-[14px] overflow-hidden h-full">
+
+                  {/* ── Image / Placeholder ── */}
+                  <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden flex items-center justify-center">
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      />
+                    ) : (
+                      <span className="text-8xl font-black text-gray-200 select-none group-hover:scale-110 transition-transform duration-500">
+                        {project.title.charAt(0)}
                       </span>
                     )}
+
+                    {/* Dark overlay on hover */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+
+                    {/* Category badge */}
+                    <span className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold z-10 ${categoryAccent[project.category] ?? "bg-gray-100 text-gray-600"}`}>
+                      {project.category}
+                    </span>
                   </div>
 
-                  {/* Links */}
-                  <div className="flex items-center gap-3 pt-1 border-t border-gray-100">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-black transition-colors"
-                      >
-                        <ArrowUpRight size={14} />
-                        Live Demo
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-black transition-colors ml-auto"
-                      >
-                        <Github size={14} />
-                        GitHub
-                      </a>
-                    )}
+                  {/* ── Content ── */}
+                  <div className="flex flex-col flex-1 p-5 gap-3">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:via-purple-600 group-hover:to-cyan-500 transition-all duration-300 leading-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.slice(0, 4).map((tech, ti) => (
+                        <span
+                          key={ti}
+                          className="px-2.5 py-1 text-[11px] font-medium bg-gray-100 group-hover:bg-indigo-50 group-hover:text-indigo-700 text-gray-600 rounded-full transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <span className="px-2.5 py-1 text-[11px] font-medium bg-gray-100 text-gray-500 rounded-full">
+                          +{project.technologies.length - 4}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-indigo-600 transition-colors"
+                        >
+                          <ArrowUpRight size={14} />
+                          Live Demo
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-indigo-600 transition-colors ml-auto"
+                        >
+                          <Github size={14} />
+                          GitHub
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>

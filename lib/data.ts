@@ -74,6 +74,7 @@ export interface Project {
   category: "UI/UX" | "Web App" | "Mobile" | "Others";
   liveUrl?: string;
   githubUrl?: string;
+  image?: string;
 }
 
 export const projectsData: Project[] = [
@@ -83,6 +84,7 @@ export const projectsData: Project[] = [
       "A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB"],
     category: "Web App",
+    image: "/images/commertial.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/ecommerce",
   },
@@ -92,6 +94,7 @@ export const projectsData: Project[] = [
       "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
     technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "Redux"],
     category: "Web App",
+    image: "/images/interviewgenie.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/task-app",
   },
@@ -101,6 +104,7 @@ export const projectsData: Project[] = [
       "Analytics dashboard for social media metrics with beautiful charts, real-time data visualization, and export functionality.",
     technologies: ["Next.js", "TypeScript", "Chart.js", "Tailwind CSS"],
     category: "UI/UX",
+    image: "/images/tailwind.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/dashboard",
   },
@@ -110,6 +114,7 @@ export const projectsData: Project[] = [
       "Beautiful weather application with location-based forecasts, detailed weather information, and interactive maps.",
     technologies: ["React", "TypeScript", "OpenWeather API", "CSS3"],
     category: "Mobile",
+    image: "/images/travel.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/weather-app",
   },
@@ -119,6 +124,7 @@ export const projectsData: Project[] = [
       "Content management system for portfolio websites with drag-and-drop editor, SEO optimization, and responsive templates.",
     technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
     category: "Others",
+    image: "/images/vscode.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/portfolio-cms",
   },
@@ -128,6 +134,7 @@ export const projectsData: Project[] = [
       "Comprehensive fitness tracking application with workout plans, progress tracking, nutrition logging, and goal setting.",
     technologies: ["React Native", "Node.js", "MongoDB", "Express"],
     category: "Mobile",
+    image: "/images/login.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },

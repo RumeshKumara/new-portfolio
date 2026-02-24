@@ -31,6 +31,8 @@ const config: Config = {
       },
       animation: {
         "infinite-scroll": "infinite-scroll 25s linear infinite",
+        "spin-slow": "spin 3s linear infinite",
+        "spin-slower": "spin 5s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {
