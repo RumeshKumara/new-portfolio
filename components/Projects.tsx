@@ -286,8 +286,8 @@ function ProjectCard({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-semibold transition-colors duration-200 ml-auto"
-                style={{ color: hovered ? config.linkColor : "#4b5563" }}
+                className="flex items-center gap-1.5 text-xs font-semibold transition-colors bg-black text-white px-3 py-1.5 rounded-full duration-200 ml-auto"
+                
               >
                 <Github size={14} />
                 GitHub
