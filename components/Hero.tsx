@@ -138,7 +138,10 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             className="text-lg md:text-xl text-accent-600 max-w-2xl mx-auto"
           >
             Crafting exceptional digital experiences with modern technologies.
-            Specialized in React, Next.js, and TypeScript.
+            Specialized in{" "}
+            <span className="font-semibold text-black">React</span>,{" "}
+            <span className="font-semibold text-black">Next.js</span>, and{" "}
+            <span className="font-semibold text-black">TypeScript</span>.
           </motion.p>
 
           <motion.div
@@ -149,17 +152,17 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           >
             <button
               onClick={handleViewProjects}
-              className="group px-8 py-4 bg-black text-white rounded-full hover:bg-accent-800 transition-all flex items-center gap-2"
+              className="group px-8 py-4 bg-black text-white rounded-full hover:scale-105 transition-all duration-200 flex items-center gap-2"
             >
               View Projects
               <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
               />
             </button>
             <button
               onClick={handleContact}
-              className="px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all flex items-center gap-2"
+              className="px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black duration-200 hover:text-white transition-all flex items-center gap-2"
             >
               Download CV
               <Download size={20} />

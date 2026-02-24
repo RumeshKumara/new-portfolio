@@ -2,6 +2,7 @@
 
 import { programmingLanguages, technologies } from "@/lib/data";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function Skills() {
   return (

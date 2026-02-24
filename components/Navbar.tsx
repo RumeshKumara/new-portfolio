@@ -123,7 +123,7 @@ export default function Navbar() {
               href="https://medium.com/@rumeshk066"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-sm font-medium bg-black text-white hover:bg-accent-800 rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
+              className={`flex items-center gap-2 text-sm font-medium bg-black text-white  rounded-full transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
                 isScrolled ? "px-5 py-2" : "px-6 py-2.5"
               }`}
               title="Visit my blog"
