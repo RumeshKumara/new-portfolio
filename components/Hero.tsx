@@ -64,18 +64,41 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
     }
   };
 
+  const lines = [
+    { top: "8%",  width: 160, duration: 9,  delay: 0,    ltr: true  },
+    { top: "14%", width: 100, duration: 13, delay: 2,    ltr: false },
+    { top: "22%", width: 140, duration: 11, delay: 5,    ltr: true  },
+    { top: "30%", width: 80,  duration: 8,  delay: 1.5,  ltr: false },
+    { top: "38%", width: 120, duration: 14, delay: 3,    ltr: true  },
+    { top: "46%", width: 90,  duration: 10, delay: 6.5,  ltr: false },
+    { top: "54%", width: 160, duration: 12, delay: 0.5,  ltr: true  },
+    { top: "62%", width: 110, duration: 9,  delay: 4,    ltr: false },
+    { top: "70%", width: 130, duration: 15, delay: 2.5,  ltr: true  },
+    { top: "78%", width: 95,  duration: 11, delay: 7,    ltr: false },
+    { top: "86%", width: 150, duration: 10, delay: 1,    ltr: true  },
+    { top: "93%", width: 105, duration: 13, delay: 5.5,  ltr: false },
+  ];
+
   return (
     <div className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+      {/* Background lines */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {lines.map((line, i) => (
+          <span
+            key={i}
+            className={`bg-line ${line.ltr ? "bg-line-ltr" : "bg-line-rtl"}`}
+            style={{
+              top: line.top,
+              width: line.width,
+              animationDuration: `${line.duration}s`,
+              animationDelay: `${line.delay}s`,
+            }}
+          />
+        ))}
+      </div>
       <motion.div
         className="container-custom relative z-10"
-        animate={{
-          y: [0, -5, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
+       
       >
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <motion.div
@@ -83,7 +106,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-black leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-sweep">
               Rumesh Kumara
             </h1>
           </motion.div>

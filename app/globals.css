@@ -30,6 +30,25 @@ body {
   }
 }
 
+/* Text color sweep animation */
+@keyframes textSweep {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-sweep {
+  background: linear-gradient(90deg, #000000 35%, #555555 50%, #000000 65%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textSweep 3s ease-in-out infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -77,6 +96,44 @@ body {
     opacity: 1;
     transform: scale(1.2) rotate(180deg);
   }
+}
+
+/* Background lines animation */
+@keyframes lineLTR {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes lineRTL {
+  0% {
+    transform: translateX(110vw);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+.bg-line {
+  position: absolute;
+  left: 0;
+  height: 1px;
+  width: 120px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, #00000022, #00000055, #00000022, transparent);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.bg-line-ltr {
+  animation: lineLTR linear infinite;
+}
+
+.bg-line-rtl {
+  animation: lineRTL linear infinite;
 }
 
 @property --border-angle {
