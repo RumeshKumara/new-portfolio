@@ -73,67 +73,6 @@ export default function Experience() {
   return (
     <section id="experience" className="relative py-32 overflow-hidden bg-white">
 
-      {/* ── Net / mesh background ── */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-
-        {/* grid lines */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)",
-            backgroundSize: "70px 70px",
-          }}
-        />
-        {/* diagonal cross lines */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(45deg, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(-45deg, rgba(0,0,0,0.025) 1px, transparent 1px)",
-            backgroundSize: "70px 70px",
-          }}
-        />
-
-        {/* SVG nodes + animated lines */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="ng1" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#000000" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          {[
-            [140,140],[280,70],[420,210],[70,350],[350,350],[490,140],
-            [210,490],[560,280],[630,70],[700,350],[770,140],[840,490],
-            [980,140],[1050,350],[1120,70],[1260,280],[1330,490],[1400,140],
-          ].map(([cx, cy], i) => (
-            <g key={i}>
-              <circle cx={cx} cy={cy} r="12" fill="url(#ng1)">
-                <animate attributeName="opacity" values="0.4;1;0.4" dur={`${2.5 + (i % 5) * 0.6}s`} repeatCount="indefinite" begin={`${i * 0.3}s`} />
-                <animate attributeName="r" values="8;14;8" dur={`${2.5 + (i % 5) * 0.6}s`} repeatCount="indefinite" begin={`${i * 0.3}s`} />
-              </circle>
-              <circle cx={cx} cy={cy} r="2" fill="#1f2937" opacity="0.4" />
-            </g>
-          ))}
-          {[
-            { x1: 70, y1: 70, x2: 700, y2: 70 },
-            { x1: 0, y1: 350, x2: 1400, y2: 350 },
-            { x1: 350, y1: 0, x2: 350, y2: 600 },
-            { x1: 700, y1: 0, x2: 700, y2: 600 },
-            { x1: 1050, y1: 0, x2: 1050, y2: 600 },
-          ].map((l, i) => (
-            <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="#000000" strokeWidth="1">
-              <animate attributeName="stroke-opacity" values="0.03;0.12;0.03" dur={`${4 + i * 0.8}s`} repeatCount="indefinite" begin={`${i * 0.5}s`} />
-            </line>
-          ))}
-        </svg>
-
-        {/* subtle gray blobs */}
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gray-200/60 blur-[120px] animate-pulse-slowest" />
-        <div className="absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full bg-gray-200/60 blur-[100px] animate-pulse-slower" />
-      </div>
-
       <div className="relative z-10 container-custom">
 
         {/* ── Section heading ── */}
@@ -147,11 +86,8 @@ export default function Experience() {
           <p className="text-sm font-semibold tracking-[0.3em] uppercase text-gray-400 mb-4">
             Career Path
           </p>
-          <h2 className="text-5xl md:text-7xl font-black text-black mb-6">
-            My{" "}
-            <span className="">
-              Experience
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
+            My Experience
           </h2>
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-black/30" />
@@ -258,7 +194,6 @@ function ExperienceCard({
       className={`relative group rounded-2xl border ${accent.border} ${accent.cardBg} shadow-lg ${accent.shadow} ${accent.hover} overflow-hidden transition-shadow duration-300`}
     >
       {/* colored top bar */}
-      <div className={`h-1.5 w-full bg-gradient-to-r ${accent.topBar}`} />
 
       {/* corner sparkle */}
       <div

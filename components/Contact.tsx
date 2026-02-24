@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -60,11 +60,15 @@ export default function Contact() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4 text-accent-700">
                   <Mail className="text-black" size={24} />
-                  <span>rumesh@example.com</span>
+                  <span>rumeshk066@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4 text-accent-700">
                   <MapPin className="text-black" size={24} />
                   <span>Sri Lanka</span>
+                </div>
+                <div className="flex items-center gap-4 text-accent-700">
+                <Phone className="text-black" size={24} />
+                <span className="text-accent-700">+94 76 723 9377</span>
                 </div>
               </div>
             </div>
@@ -127,7 +131,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-black text-white rounded-md hover:bg-accent-800 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-8 py-4 bg-black text-white rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2"
               >
                 Send Message
                 <Send size={20} />
