@@ -206,11 +206,28 @@ function ProjectCard({
             </span>
           )}
 
-          {/* Dark overlay on hover */}
+          {/* Dark overlay + "More Details" on hover */}
           <div
-            className="absolute inset-0 transition-colors duration-300"
-            style={{ background: hovered ? "rgba(0,0,0,0.08)" : "transparent" }}
-          />
+            className="absolute inset-0 flex items-center justify-center transition-all duration-300"
+            style={{ background: hovered ? "rgba(0,0,0,0.58)" : "transparent" }}
+          >
+            <a
+              href={project.liveUrl ?? project.githubUrl ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white border-2 border-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black"
+              style={{
+                opacity: hovered ? 1 : 0,
+                transform: hovered ? "translateY(0) scale(1)" : "translateY(6px) scale(0.95)",
+                pointerEvents: hovered ? "auto" : "none",
+                transition: "opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, color 0.2s ease",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ArrowUpRight size={15} />
+              More Details
+            </a>
+          </div>
 
           {/* Category badge */}
           <span
