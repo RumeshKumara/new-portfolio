@@ -144,6 +144,34 @@ body {
   inherits: false;
 }
 
+/* Avatar spin border */
+@property --avatar-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes avatar-border-spin {
+  0%   { --avatar-angle: 0deg; }
+  100% { --avatar-angle: 360deg; }
+}
+
+.avatar-spin-border {
+  position: relative;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--avatar-angle),
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #3b82f6
+  );
+  animation: avatar-border-spin 3s linear infinite;
+}
+
 .star-border {
   position: relative;
 }
