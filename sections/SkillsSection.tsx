@@ -43,11 +43,10 @@ export default function SkillsSection() {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20, delay: index * 0.05 }}
                     className="group relative bg-white border-2 border-accent-200 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer"
                     whileHover={{ scale: 1.08, rotate: 2 }}
                     whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
                       {tech.logo && (
