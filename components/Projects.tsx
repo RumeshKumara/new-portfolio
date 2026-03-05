@@ -2,8 +2,8 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
-import { projectsData } from "@/lib/data";
-import { Github, ArrowUpRight } from "lucide-react";
+import { projectsData, Project } from "@/lib/data";
+import { Github, ArrowUpRight, X, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 type Category = "All" | "UI/UX" | "Web App" | "Mobile" | "Others";
@@ -139,15 +139,166 @@ const categoryConfig: Record<string, {
 
 const fallbackConfig = categoryConfig["Others"];
 
+/* ─── Project Detail Modal ─────────────────────────────────────────── */
+function ProjectModal({
+  project,
+  onClose,
+}: {
+  project: Project;
+  onClose: () => void;
+}) {
+  const config = categoryConfig[project.category] ?? fallbackConfig;
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <AnimatePresence>
+      {/* Backdrop */}
+      <motion.div
+        key="backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-8"
+        style={{ background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)" }}
+        onClick={onClose}
+      >
+        {/* Card */}
+        <motion.div
+          key="modal"
+          initial={{ opacity: 0, scale: 0.88, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: 24 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] max-h-[90vh] flex flex-col"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white hover:bg-black transition-colors duration-200"
+            aria-label="Close"
+          >
+            <X size={16} />
+          </button>
+
+          {/* Image */}
+          <div className="relative h-64 w-full shrink-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <span className="text-9xl font-black text-gray-200 select-none">
+                {project.title.charAt(0)}
+              </span>
+            )}
+            {/* Bottom fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+          </div>
+
+          {/* Scrollable content */}
+          <div className="flex flex-col gap-5 p-7 overflow-y-auto">
+            {/* Header row */}
+            <div className="flex items-start justify-between gap-4">
+              <h2
+                className="text-2xl font-extrabold leading-tight"
+                style={{
+                  color: "transparent",
+                  backgroundImage: config.titleGradient,
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                }}
+              >
+                {project.title}
+              </h2>
+              <span
+                className={`shrink-0 mt-1 px-3 py-1 rounded-full text-xs font-semibold ${
+                  categoryAccent[project.category] ?? "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {project.category}
+              </span>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm text-gray-600 leading-relaxed">{project.description}</p>
+
+            {/* Tech stack – all tags */}
+            <div>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">Tech Stack</p>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, ti) => (
+                  <span
+                    key={ti}
+                    className="px-3 py-1.5 text-xs font-medium rounded-full"
+                    style={{ backgroundColor: config.techBg, color: config.techText }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-gray-100" />
+
+            {/* Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-80"
+                  style={{ background: config.titleGradient }}
+                >
+                  <ExternalLink size={14} />
+                  Live Demo
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold bg-gray-900 text-white hover:bg-black transition-colors duration-200"
+                >
+                  <Github size={14} />
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 /* ─── Project Card ──────────────────────────────────────────────────── */
 function ProjectCard({
   project,
   index,
   isInView,
+  onOpen,
 }: {
-  project: (typeof projectsData)[0];
+  project: Project;
   index: number;
   isInView: boolean;
+  onOpen: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
   const config = categoryConfig[project.category] ?? fallbackConfig;
@@ -211,22 +362,19 @@ function ProjectCard({
             className="absolute inset-0 flex items-center justify-center transition-all duration-300"
             style={{ background: hovered ? "rgba(0,0,0,0.58)" : "transparent" }}
           >
-            <a
-              href={project.liveUrl ?? project.githubUrl ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white border-2 border-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black"
+            <button
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white border-2 border-white/80 backdrop-blur-sm hover:bg-white hover:text-black"
               style={{
                 opacity: hovered ? 1 : 0,
                 transform: hovered ? "translateY(0) scale(1)" : "translateY(6px) scale(0.95)",
                 pointerEvents: hovered ? "auto" : "none",
                 transition: "opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, color 0.2s ease",
               }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => { e.stopPropagation(); onOpen(); }}
             >
               <ArrowUpRight size={15} />
               More Details
-            </a>
+            </button>
           </div>
 
           {/* Category badge */}
@@ -323,6 +471,7 @@ export default function Projects() {
   const gridRef   = useRef(null);
   const isInView  = useInView(gridRef, { once: true, margin: "-80px" });
   const [selectedCategory, setSelectedCategory] = useState<Category>("All");
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   const categories: Category[] = ["All", "UI/UX", "Web App", "Mobile", "Others"];
 
@@ -375,10 +524,22 @@ export default function Projects() {
                 project={project}
                 index={index}
                 isInView={isInView}
+                onOpen={() => setActiveProject(project)}
               />
             ))}
           </AnimatePresence>
         </div>
+
+        {/* ── Detail Modal ── */}
+        <AnimatePresence>
+          {activeProject && (
+            <ProjectModal
+              key={activeProject.title}
+              project={activeProject}
+              onClose={() => setActiveProject(null)}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
