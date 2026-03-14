@@ -54,8 +54,29 @@ export default function DesignCardsSection() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
                 transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
-                className="h-fit rounded-3xl border border-black/10 bg-white p-4 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
+                className="relative h-fit rounded-3xl border border-black/10 bg-white p-4 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
               >
+                <button
+                  onClick={() =>
+                    setLiked((prev) =>
+                      prev.map((v, i) => (i === index ? !v : v))
+                    )
+                  }
+                  aria-label={liked[index] ? "Unlike" : "Like"}
+                  className="absolute top-8 right-8 z-10 w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 bg-white/95 backdrop-blur-sm transition-colors"
+                  style={liked[index] ? { background: "#fee2e2", color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
+                >
+                  <motion.span
+                    key={liked[index] ? "filled" : "empty"}
+                    initial={{ scale: 0.6 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="inline-flex"
+                  >
+                    <Heart size={16} fill={liked[index] ? "#ef4444" : "none"} />
+                  </motion.span>
+                </button>
+
                 <div className="relative w-full overflow-hidden rounded-2xl border border-black/5 bg-white">
                   <Image
                     src={card.image}
@@ -74,26 +95,6 @@ export default function DesignCardsSection() {
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-2xl font-semibold text-black">{card.title}</h3>
                     <div className="flex items-center gap-2 shrink-0">
-                      <button
-                        onClick={() =>
-                          setLiked((prev) =>
-                            prev.map((v, i) => (i === index ? !v : v))
-                          )
-                        }
-                        aria-label={liked[index] ? "Unlike" : "Like"}
-                        className="w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 transition-colors"
-                        style={liked[index] ? { background: "#fee2e2", color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
-                      >
-                        <motion.span
-                          key={liked[index] ? "filled" : "empty"}
-                          initial={{ scale: 0.6 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                          className="inline-flex"
-                        >
-                          <Heart size={16} fill={liked[index] ? "#ef4444" : "none"} />
-                        </motion.span>
-                      </button>
                       <a
                         href={card.figmaUrl}
                         target="_blank"
