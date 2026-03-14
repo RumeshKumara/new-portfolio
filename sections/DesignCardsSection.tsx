@@ -24,6 +24,42 @@ const designCards = [
     figmaUrl: "https://www.figma.com/",
     linkedinUrl: "https://www.linkedin.com/",
   },
+  {
+    title: "Pizza Product Card UI",
+    tag: "Product Card Design",
+    description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
+    image: "/images/figma/avatar.png",
+    alt: "Pizza app product card UI concept",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
+  },
+  {
+    title: "Pizza Product Card UI",
+    tag: "Product Card Design",
+    description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
+    image: "/images/figma/interests.png",
+    alt: "Pizza app product card UI concept",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
+  },
+  {
+    title: "Pizza Product Card UI",
+    tag: "Product Card Design",
+    description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
+    image: "/images/figma/online-shopping.png",
+    alt: "Pizza app product card UI concept",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
+  },
+  {
+    title: "Pizza Product Card UI",
+    tag: "Product Card Design",
+    description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
+    image: "/images/figma/travel_card.png",
+    alt: "Pizza app product card UI concept",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
+  },
 ];
 
 export default function DesignCardsSection() {
@@ -50,7 +86,7 @@ export default function DesignCardsSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {designCards.map((card, index) => (
               <motion.article
-                key={card.title}
+                key={card.image}
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
                 transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
