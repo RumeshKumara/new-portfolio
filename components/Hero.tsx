@@ -17,6 +17,17 @@ const jobTitles = [
   "UI/UX Designer"
 ];
 
+const marqueeItems = [
+  "React",
+  "Node.js",
+  "TypeScript",
+  "Next.js",
+  "Three.js",
+  "UI & UX",
+  "Python",
+  "Figma",
+];
+
 
 
 export default function Hero({ onViewProjects, onContact }: HeroProps) {
@@ -80,7 +91,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+    <div className="min-h-screen pt-20 relative overflow-hidden flex flex-col">
       {/* Background lines */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {lines.map((line, i) => (
@@ -97,10 +108,9 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
         ))}
       </div>
       <motion.div
-        className="container-custom relative z-10"
-       
+        className="container-custom relative z-10 flex-1 flex items-center justify-center pb-12"
       >
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="max-w-4xl mx-auto text-center space-y-8 w-full mt-[4rem]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -227,6 +237,25 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           </motion.div>
         </div>
       </motion.div>
+
+      <div className="hero-marquee-shell relative z-10" aria-label="Core technologies and skills">
+        <div className="hero-marquee-track">
+          {[0, 1].map((groupIndex) => (
+            <div
+              key={groupIndex}
+              className="hero-marquee-group"
+              aria-hidden={groupIndex === 1}
+            >
+              {marqueeItems.map((item) => (
+                <div key={`${groupIndex}-${item}`} className="hero-marquee-item">
+                  <span>{item}</span>
+                  <span className="hero-marquee-separator">✦</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
