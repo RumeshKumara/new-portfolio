@@ -63,8 +63,8 @@ export default function DesignCardsSection() {
                     )
                   }
                   aria-label={liked[index] ? "Unlike" : "Like"}
-                  className="absolute top-8 right-8 z-10 w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 bg-white/95 backdrop-blur-sm transition-colors"
-                  style={liked[index] ? { background: "#fee2e2", color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
+                  className="absolute top-8 right-8 z-10 w-9 h-9 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-colors"
+                  style={liked[index] ? { color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
                 >
                   <motion.span
                     key={liked[index] ? "filled" : "empty"}
