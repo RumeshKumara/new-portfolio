@@ -56,26 +56,55 @@ export default function DesignCardsSection() {
                 transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
                 className="relative h-fit rounded-3xl border border-black/10 bg-white p-4 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
               >
-                <button
+                <motion.button
                   onClick={() =>
                     setLiked((prev) =>
                       prev.map((v, i) => (i === index ? !v : v))
                     )
                   }
                   aria-label={liked[index] ? "Unlike" : "Like"}
-                  className="absolute top-8 right-8 z-10 w-9 h-9 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-colors"
-                  style={liked[index] ? { color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
+                  className="absolute top-8 right-8 z-10 w-12 h-12 inline-flex items-center justify-center rounded-full border bg-white/15 backdrop-blur-2xl"
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.94 }}
+                  animate={
+                    liked[index]
+                      ? { scale: 1, opacity: 1 }
+                      : { scale: [1, 1.06, 1], opacity: 1 }
+                  }
+                  transition={
+                    liked[index]
+                      ? { duration: 0.2 }
+                      : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+                  }
+                  style={
+                    liked[index]
+                      ? {
+                          color: "#ef4444",
+                          borderColor: "#fca5a5",
+                          boxShadow: "0 10px 30px rgba(239,68,68,0.28)",
+                        }
+                      : {
+                          color: "#ffffff",
+                          borderColor: "rgba(255,255,255,0.42)",
+                          boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+                        }
+                  }
                 >
                   <motion.span
-                    key={liked[index] ? "filled" : "empty"}
-                    initial={{ scale: 0.6 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    variants={{
+                      idle: { scale: 1, rotate: 0 },
+                      liked: {
+                        scale: [1, 1.2, 1],
+                        rotate: [0, -10, 10, -8, 8, 0],
+                      },
+                    }}
+                    animate={liked[index] ? "liked" : "idle"}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
                     className="inline-flex"
                   >
-                    <Heart size={16} fill={liked[index] ? "#ef4444" : "none"} />
+                    <Heart size={20} fill={liked[index] ? "#ef4444" : "none"} />
                   </motion.span>
-                </button>
+                </motion.button>
 
                 <div className="relative w-full overflow-hidden rounded-2xl border border-black/5 bg-white">
                   <Image
