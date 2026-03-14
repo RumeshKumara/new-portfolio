@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { Figma, Linkedin } from "lucide-react";
 
 const designCards = [
   {
@@ -10,12 +11,16 @@ const designCards = [
     description: "A mobile-first navigation concept focused on icon clarity, active-state emphasis, and contrast in both light and dark variants.",
     image: "/images/figma/mobile-navbar.png",
     alt: "Mobile navbar UI exploration",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
   },
   {
     title: "Pizza Product Card UI",
     description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
     image: "/images/figma/Pizza.png",
     alt: "Pizza app product card UI concept",
+    figmaUrl: "https://www.figma.com/",
+    linkedinUrl: "https://www.linkedin.com/",
   },
 ];
 
@@ -39,14 +44,14 @@ export default function DesignCardsSection() {
             Separate visual explorations placed right after projects.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {designCards.map((card, index) => (
               <motion.article
                 key={card.title}
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
                 transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
-                className="rounded-3xl border border-black/10 bg-white p-4 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
+                className="h-fit rounded-3xl border border-black/10 bg-white p-4 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
               >
                 <div className="relative w-full overflow-hidden rounded-2xl border border-black/5 bg-white">
                   <Image
@@ -59,8 +64,30 @@ export default function DesignCardsSection() {
                   />
                 </div>
 
-                <div className="pt-5 px-1">
-                  <h3 className="text-2xl font-semibold text-black">{card.title}</h3>
+                <div className="mt-4 px-1">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-2xl font-semibold text-black">{card.title}</h3>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <a
+                        href={card.figmaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${card.title} on Figma`}
+                        className="w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 text-gray-700 hover:bg-black hover:text-white transition-colors"
+                      >
+                        <Figma size={16} />
+                      </a>
+                      <a
+                        href={card.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${card.title} on LinkedIn`}
+                        className="w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 text-gray-700 hover:bg-[#0A66C2] hover:text-white transition-colors"
+                      >
+                        <Linkedin size={16} />
+                      </a>
+                    </div>
+                  </div>
                   <p className="mt-2 text-gray-600 leading-relaxed">{card.description}</p>
                 </div>
               </motion.article>
