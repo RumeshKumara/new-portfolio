@@ -2,12 +2,13 @@
 
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
-import { Figma, Linkedin } from "lucide-react";
+import { useRef, useState } from "react";
+import { Figma, Linkedin, Heart } from "lucide-react";
 
 const designCards = [
   {
     title: "Mobile Navbar Exploration",
+    tag: "Mobile UI Design",
     description: "A mobile-first navigation concept focused on icon clarity, active-state emphasis, and contrast in both light and dark variants.",
     image: "/images/figma/mobile-navbar.png",
     alt: "Mobile navbar UI exploration",
@@ -16,6 +17,7 @@ const designCards = [
   },
   {
     title: "Pizza Product Card UI",
+    tag: "Product Card Design",
     description: "A food-delivery card concept that balances image-led storytelling with clear action points and product highlights.",
     image: "/images/figma/Pizza.png",
     alt: "Pizza app product card UI concept",
@@ -27,6 +29,7 @@ const designCards = [
 export default function DesignCardsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-120px" });
+  const [liked, setLiked] = useState<boolean[]>(designCards.map(() => false));
 
   return (
     <section id="design-cards" className="py-24 bg-[#f7f7f8]">
@@ -38,7 +41,7 @@ export default function DesignCardsSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-black text-center">
-            UI Image Cards
+            Design Work
           </h2>
           <p className="text-center text-gray-600 mt-5 mb-14 max-w-2xl mx-auto">
             Separate visual explorations placed right after projects.
@@ -65,9 +68,32 @@ export default function DesignCardsSection() {
                 </div>
 
                 <div className="mt-4 px-1">
+                  <span className="inline-block mb-3 px-4 py-3 text-xs font-semibold tracking-wide rounded-full bg-white text-black border border-black/10">
+                    {card.tag}
+                  </span>
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-2xl font-semibold text-black">{card.title}</h3>
                     <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={() =>
+                          setLiked((prev) =>
+                            prev.map((v, i) => (i === index ? !v : v))
+                          )
+                        }
+                        aria-label={liked[index] ? "Unlike" : "Like"}
+                        className="w-9 h-9 inline-flex items-center justify-center rounded-full border border-black/10 transition-colors"
+                        style={liked[index] ? { background: "#fee2e2", color: "#ef4444", borderColor: "#fca5a5" } : { color: "#9ca3af" }}
+                      >
+                        <motion.span
+                          key={liked[index] ? "filled" : "empty"}
+                          initial={{ scale: 0.6 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                          className="inline-flex"
+                        >
+                          <Heart size={16} fill={liked[index] ? "#ef4444" : "none"} />
+                        </motion.span>
+                      </button>
                       <a
                         href={card.figmaUrl}
                         target="_blank"
