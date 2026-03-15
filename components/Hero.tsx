@@ -64,6 +64,13 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
     onContact?.();
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cv/Rumesh_CV.pdf";
+    link.download = "Rumesh_CV.pdf";
+    link.click();
+  };
+
   const handleScrollToAbout = () => {
     const element = document.getElementById("about");
     if (element) {
@@ -171,7 +178,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
               />
             </button>
             <button
-              onClick={handleContact}
+              onClick={handleDownloadCV}
               className="px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black duration-200 hover:text-white transition-all flex items-center gap-2"
             >
               Download CV
