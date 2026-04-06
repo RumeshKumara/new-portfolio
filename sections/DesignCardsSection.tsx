@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { Figma, Linkedin, Heart } from "lucide-react";
 
@@ -62,10 +63,15 @@ const designCards = [
   },
 ];
 
-export default function DesignCardsSection() {
+interface DesignCardsSectionProps {
+  showAll?: boolean;
+}
+
+export default function DesignCardsSection({ showAll = false }: DesignCardsSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-120px" });
-  const [liked, setLiked] = useState<boolean[]>(designCards.map(() => false));
+  const visibleCards = showAll ? designCards : designCards.slice(0, 2);
+  const [liked, setLiked] = useState<boolean[]>(visibleCards.map(() => false));
 
   return (
     <section id="design-cards" className="py-24 bg-[#f7f7f8]">
@@ -84,7 +90,7 @@ export default function DesignCardsSection() {
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {designCards.map((card, index) => (
+            {visibleCards.map((card, index) => (
               <motion.article
                 key={card.image}
                 initial={{ opacity: 0, y: 28 }}
@@ -185,6 +191,19 @@ export default function DesignCardsSection() {
               </motion.article>
             ))}
           </div>
+
+          {!showAll && (
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/design-work"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-black/85"
+              >
+                See More
+              </Link>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
