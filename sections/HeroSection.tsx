@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="bg-white">
+    <section id="home" className="bg-gradient-to-t from-[#e5cfa8] to-white">
       <Hero />
     </section>
   );

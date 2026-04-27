@@ -152,13 +152,13 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="text-lg md:text-xl text-accent-600 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-accent-600 max-w-2xl mx-auto leading-loose"
           >
             Crafting exceptional digital experiences with modern technologies.
             Specialized in{" "}
-            <span className="font-semibold text-black">React</span>,{" "}
-            <span className="font-semibold text-black">Next.js</span>, and{" "}
-            <span className="font-semibold text-black">TypeScript</span>.
+            <span className="font-bold text-black brush-highlight">React</span>,{" "}
+            <span className="font-bold text-black brush-highlight">Next.js</span>, and{" "}
+            <span className="font-bold text-black brush-highlight">TypeScript</span>.
           </motion.p>
 
           <motion.div
