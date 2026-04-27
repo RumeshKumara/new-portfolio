@@ -70,7 +70,7 @@ export default function Navbar() {
       <motion.div
         layout
         transition={{ type: "spring", stiffness: 400, damping: 35 }}
-        className={`relative star-border bg-white/40 backdrop-blur-xl rounded-full shadow-lg shadow-black/5 ${
+        className={`relative z-50 star-border bg-white/40 backdrop-blur-xl rounded-full shadow-lg shadow-black/5 ${
           isScrolled ? "max-w-fit" : "max-w-6xl w-full"
         }`}
       >
@@ -155,7 +155,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="md:hidden absolute left-4 right-4 mt-2 bg-white/40 backdrop-blur-xl rounded-2xl shadow-lg border border-white/30 overflow-hidden"
+            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/40 backdrop-blur-xl rounded-2xl shadow-lg border border-white/30 overflow-hidden z-40"
           >
             <div className="px-6 py-4 space-y-1">
               {navItems.map((item, index) => (
