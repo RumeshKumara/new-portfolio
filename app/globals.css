@@ -26,7 +26,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
@@ -52,6 +52,7 @@ body {
   0% {
     background-position: -100% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -90,6 +91,7 @@ body {
   0% {
     --border-angle: 0deg;
   }
+
   100% {
     --border-angle: 360deg;
   }
@@ -99,16 +101,20 @@ body {
   0% {
     offset-distance: 0%;
   }
+
   100% {
     offset-distance: 100%;
   }
 }
 
 @keyframes sparkle-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(0.8) rotate(0deg);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.2) rotate(180deg);
@@ -120,6 +126,7 @@ body {
   0% {
     transform: translateX(-110%);
   }
+
   100% {
     transform: translateX(110vw);
   }
@@ -129,6 +136,7 @@ body {
   0% {
     transform: translateX(110vw);
   }
+
   100% {
     transform: translateX(-110%);
   }
@@ -138,6 +146,7 @@ body {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }
@@ -226,33 +235,7 @@ body {
   inherits: false;
 }
 
-/* Avatar spin border */
-@property --avatar-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
 
-@keyframes avatar-border-spin {
-  0%   { --avatar-angle: 0deg; }
-  100% { --avatar-angle: 360deg; }
-}
-
-.avatar-spin-border {
-  position: relative;
-  border-radius: 9999px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--avatar-angle),
-    #3b82f6,
-    #8b5cf6,
-    #ec4899,
-    #f59e0b,
-    #10b981,
-    #3b82f6
-  );
-  animation: avatar-border-spin 3s linear infinite;
-}
 
 .star-border {
   position: relative;
@@ -264,12 +247,10 @@ body {
   inset: -1.5px;
   border-radius: inherit;
   padding: 1.5px;
-  background: conic-gradient(
-    from var(--border-angle),
-    transparent 25%,
-    #000000 50%,
-    transparent 75%
-  );
+  background: conic-gradient(from var(--border-angle),
+      transparent 25%,
+      #000000 50%,
+      transparent 75%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -280,20 +261,24 @@ body {
 
 /* About section terminal card */
 @keyframes about-float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
 }
 
 @keyframes cursor-blink {
+
   0%,
   49% {
     opacity: 1;
   }
+
   50%,
   100% {
     opacity: 0;
@@ -428,6 +413,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .about-card-stack,
   .cursor-blink {
     animation: none;
