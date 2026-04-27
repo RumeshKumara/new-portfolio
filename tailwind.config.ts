@@ -43,6 +43,7 @@ const config: Config = {
         "slide-in-left": "slide-in-left 0.8s ease-out forwards",
         "slide-in-right": "slide-in-right 0.8s ease-out forwards",
         "orbit": "orbit 12s linear infinite",
+        "gradient-x": "gradient-x 3s ease infinite",
       },
       keyframes: {
         "infinite-scroll": {
@@ -69,6 +70,10 @@ const config: Config = {
         "orbit": {
           from: { transform: "rotate(0deg) translateX(120px) rotate(0deg)" },
           to: { transform: "rotate(360deg) translateX(120px) rotate(-360deg)" },
+        },
+        "gradient-x": {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
         },
       },
     },
