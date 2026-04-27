@@ -23,7 +23,7 @@ export default function InfiniteScroll({ items, speed = 50, showLogos = false, d
 
   // Duplicate items twice to create seamless loop
   const duplicatedItems = [...items, ...items];
-  
+
   // Helper function to get display text
   const getItemText = (item: string | Skill): string => {
     return typeof item === 'string' ? item : item.name;

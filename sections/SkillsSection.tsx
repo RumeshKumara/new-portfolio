@@ -11,8 +11,36 @@ export default function SkillsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 bg-accent-50">
-      <div className="container-custom">
+    <section id="skills" className="py-24 bg-accent-50 relative overflow-hidden">
+      {/* Decorative blurred shapes */}
+      <motion.div
+        animate={{
+          y: [0, 40, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-64 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ecdaba] rounded-full blur-[140px] pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          y: [0, -40, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -bottom-64 -right-64 w-[500px] h-[500px] bg-[#e8cfa3] rounded-full blur-[120px] pointer-events-none"
+      />
+
+      <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -27,7 +55,7 @@ export default function SkillsSection() {
             {/* Programming Languages - Scrolling */}
             <div>
               <h3 className="text-2xl font-semibold text-black mb-6 text-center">
-                Programming Languages
+                <span className="brush-highlight">Programming Languages</span>
               </h3>
               <InfiniteScroll items={programmingLanguages} showLogos={true} direction="left" />
             </div>
@@ -35,7 +63,7 @@ export default function SkillsSection() {
             {/* Technologies & Frameworks - Card Grid */}
             <div>
               <h3 className="text-2xl font-semibold text-black mb-8 text-center">
-                Technologies & Frameworks
+                <span className="brush-highlight">Technologies & Frameworks</span>
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {technologies.map((tech, index) => (
