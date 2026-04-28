@@ -58,7 +58,7 @@ export default function ShowcaseSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest uppercase border border-[#e8cfa3] text-[#b49b6d] rounded-full bg-[#e8cfa3]/5"
@@ -86,7 +86,7 @@ export default function ShowcaseSection() {
           <h3 className="text-2xl font-bold uppercase tracking-tighter">Web App Designs</h3>
           <div className="flex-grow h-px bg-gray-200" />
         </div>
-        
+
         <div className="relative flex overflow-hidden py-4">
           <motion.div
             className="flex whitespace-nowrap"
@@ -123,7 +123,7 @@ export default function ShowcaseSection() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Browser Content */}
                   <div className="relative aspect-video overflow-hidden bg-white">
                     <Image
@@ -135,7 +135,7 @@ export default function ShowcaseSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
                       <span className="text-[#e8cfa3] text-sm font-bold uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.category}</span>
                       <h4 className="text-white text-3xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{item.title}</h4>
-                      <motion.div 
+                      <motion.div
                         whileHover={{ scale: 1.1 }}
                         className="absolute top-8 right-8 w-14 h-14 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150"
                       >
@@ -183,10 +183,10 @@ export default function ShowcaseSection() {
                 {/* Mobile Frame (iPhone Style) */}
                 <div className="group relative mx-auto transition-all duration-500 hover:-translate-y-4">
                   {/* Outer Bezel */}
-                  <div className="relative border-[8px] md:border-[12px] border-gray-200 rounded-[3rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.10)] bg-[#f1f1f1] aspect-[9/19.5]">
+                  <div className="relative border-[4px] md:border-[6px] border-gray-200 rounded-[3rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.10)] bg-[#f1f1f1] aspect-[9/19.5]">
                     {/* Notch / Dynamic Island */}
                     <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 w-16 md:w-24 h-5 md:h-7 bg-[#1d1d1d] rounded-full z-20" />
-                    
+
                     {/* Screen Content */}
                     <div className="relative h-full w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-white">
                       <Image
@@ -198,7 +198,7 @@ export default function ShowcaseSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span className="text-[#e8cfa3] text-xs font-bold uppercase tracking-widest mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.category}</span>
                         <h4 className="text-white text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{item.title}</h4>
-                        <motion.div 
+                        <motion.div
                           whileHover={{ scale: 1.1 }}
                           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                         >
@@ -206,11 +206,11 @@ export default function ShowcaseSection() {
                         </motion.div>
                       </div>
                     </div>
-                    
+
                     {/* Home Indicator */}
                     <div className="absolute bottom-1.5 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-24 h-1 md:h-1.5 bg-gray-300/60 rounded-full z-20" />
                   </div>
-                  
+
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-[#e8cfa3]/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 scale-90" />
                 </div>
@@ -219,7 +219,7 @@ export default function ShowcaseSection() {
           </motion.div>
         </div>
       </div>
-      
+
       <div className="mt-32 flex flex-col items-center">
         <p className="text-gray-400 text-sm mb-6 uppercase tracking-[0.3em]">Built with precision</p>
         <div className="h-20 w-px bg-gradient-to-b from-[#e8cfa3] to-transparent" />
