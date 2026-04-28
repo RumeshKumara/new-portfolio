@@ -154,7 +154,7 @@ export default function Navbar() {
               href="https://medium.com/@rumeshk066"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-[#e8cfa3] via-[#e9d2a7] to-[#ffd68f] bg-[length:200%_100%] animate-gradient-x text-black rounded-full transition-all hover:scale-105 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#e8cfa3] focus:ring-offset-2 ${
+              className={`flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-[#e8cfa3] via-[#e9d2a7] to-[#ffd68f] bg-[length:200%_100%] animate-gradient-x text-black rounded-full transition-transform duration-300 ease-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e8cfa3] focus:ring-offset-2 ${
                 isScrolled ? "px-5 py-2" : "px-6 py-2.5"
               }`}
               title="Visit my blog"
