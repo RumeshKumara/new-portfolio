@@ -105,7 +105,7 @@ export default function ShowcaseSection() {
             {[...webDesigns, ...webDesigns].map((item, index) => (
               <div
                 key={`web-${index}`}
-                className="flex-shrink-0 w-[450px] md:w-[700px] px-8"
+                className="flex-shrink-0 w-[360px] md:w-[560px] px-6"
               >
                 {/* Browser Frame */}
                 <div className="group relative rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(232,207,163,0.3)] hover:-translate-y-2">
@@ -178,14 +178,14 @@ export default function ShowcaseSection() {
             {[...mobileDesigns, ...mobileDesigns].map((item, index) => (
               <div
                 key={`mobile-${index}`}
-                className="flex-shrink-0 w-[280px] md:w-[380px] px-8"
+                className="flex-shrink-0 w-[200px] md:w-[280px] px-5"
               >
                 {/* Mobile Frame (iPhone Style) */}
                 <div className="group relative mx-auto transition-all duration-500 hover:-translate-y-4">
                   {/* Outer Bezel */}
-                  <div className="relative border-[8px] md:border-[12px] border-gray-900 rounded-[3rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] bg-gray-900 aspect-[9/19.5]">
+                  <div className="relative border-[8px] md:border-[12px] border-gray-200 rounded-[3rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.10)] bg-[#f1f1f1] aspect-[9/19.5]">
                     {/* Notch / Dynamic Island */}
-                    <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 w-20 md:w-28 h-6 md:h-8 bg-gray-900 rounded-full z-20" />
+                    <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 w-16 md:w-24 h-5 md:h-7 bg-[#1d1d1d] rounded-full z-20" />
                     
                     {/* Screen Content */}
                     <div className="relative h-full w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-white">
@@ -208,7 +208,7 @@ export default function ShowcaseSection() {
                     </div>
                     
                     {/* Home Indicator */}
-                    <div className="absolute bottom-1.5 md:bottom-2 left-1/2 -translate-x-1/2 w-20 md:w-32 h-1 md:h-1.5 bg-gray-400/30 rounded-full z-20" />
+                    <div className="absolute bottom-1.5 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-24 h-1 md:h-1.5 bg-gray-300/60 rounded-full z-20" />
                   </div>
                   
                   {/* Glow Effect */}
