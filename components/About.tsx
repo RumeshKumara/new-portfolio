@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -41,8 +42,17 @@ export default function About() {
         >
           <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-black mb-8">
-                About Me
+              <h2 className="mb-8 flex items-center gap-4 text-5xl font-bold text-black md:text-6xl">
+                <span>About Me</span>
+                <span className="relative inline-flex h-14 w-14 overflow-hidden rounded-full border border-black/10 bg-white shadow-[0_12px_30px_rgba(229,207,168,0.75)]">
+                  <Image
+                    src="/black-profile.png"
+                    alt="Portrait of Rumesh Kumara"
+                    fill
+                    sizes="56px"
+                    className="object-cover object-center"
+                  />
+                </span>
               </h2>
               <div className="space-y-6 text-lg text-accent-700">
                 <p>
