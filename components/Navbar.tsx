@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, BookOpen } from "lucide-react";
@@ -20,6 +20,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Navbar() {
       const scrollPosition = window.scrollY + 100;
 
       setIsScrolled(window.scrollY > 50);
+      setIsAtTop(window.scrollY === 0);
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -75,12 +77,12 @@ export default function Navbar() {
         }`}
       >
 
-        <div className={`flex items-center justify-between px-8 ${
+        <div className={`flex items-center justify-between px-4 ${
           isScrolled ? "h-14" : "h-16"
         } transition-all duration-300`}>
           {/* Logo */}
           <AnimatePresence mode="popLayout">
-            {!isScrolled && (
+            {isAtTop ? (
               <motion.div
                 initial={{ opacity: 0, width: 0, filter: "blur(4px)" }}
                 animate={{ opacity: 1, width: "auto", filter: "blur(0px)" }}
@@ -89,7 +91,35 @@ export default function Navbar() {
                 className="overflow-hidden"
               >
                 <Link href="/" className="flex items-center cursor-pointer mr-8" aria-label="Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                  <span className="text-2xl font-bold text-black whitespace-nowrap">RK</span>
+                  <span className="relative inline-flex h-12 w-12 overflow-hidden rounded-full border border-black/10 transition-transform duration-300 ease-out hover:scale-105 focus-visible:scale-105 transform-gpu">
+                    <Image
+                      src="/black-profile.png"
+                      alt="Portrait of Rumesh Kumara"
+                      fill
+                      sizes="52px"
+                      className="object-cover object-center"
+                    />
+                  </span>
+                </Link>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, width: 0, filter: "blur(4px)" }}
+                animate={{ opacity: 1, width: "auto", filter: "blur(0px)" }}
+                exit={{ opacity: 0, width: 0, filter: "blur(4px)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="overflow-hidden"
+              >
+                <Link href="/" className="flex items-center cursor-pointer mr-8" aria-label="Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                  <span className="relative inline-flex h-12 w-12 overflow-hidden rounded-full border border-black/10 transition-transform duration-300 ease-out hover:scale-105 focus-visible:scale-105 transform-gpu">
+                    <Image
+                      src="/black-profile.png"
+                      alt="Portrait of Rumesh Kumara"
+                      fill
+                      sizes="52px"
+                      className="object-cover object-center"
+                    />
+                  </span>
                 </Link>
               </motion.div>
             )}
