@@ -46,14 +46,14 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-accent-700">
                 <p>
-                  I&apos;m a passionate Senior Frontend Engineer and UI/UX Designer with a
+                  I&apos;m a passionate <span className="font-bold text-black brush-highlight">Senior Frontend Engineer</span> and <span className="font-bold text-black brush-highlight">UI/UX Designer</span> with a
                   keen eye for detail and a love for creating seamless user
                   experiences. With years of experience in the industry, I
-                  specialize in building modern, performant web applications using
+                  specialize in building modern, <span className="font-bold text-black brush-highlight">customized</span>, performant web applications using
                   cutting-edge technologies.
                 </p>
                 <p>
-                  My expertise lies in React, Next.js, TypeScript, and modern CSS
+                  My expertise lies in <span className="font-bold text-black brush-highlight">React</span>, <span className="font-bold text-black brush-highlight">Next.js</span>, <span className="font-bold text-black brush-highlight">TypeScript</span>, and modern CSS
                   frameworks. I believe in writing clean, maintainable code and
                   following best practices to deliver exceptional products that not
                   only look great but perform flawlessly.
@@ -84,13 +84,13 @@ export default function About() {
                       <span className="c-blue">alex</span> = {"{"}
                     </p>
                     <p>
-                      &nbsp;&nbsp;role: <span className="c-green">&quot;Full-Stack Dev&quot;</span>,
+                      &nbsp;&nbsp;<span className="c-blue">role</span>: <span className="c-green">&quot;Full-Stack Dev&quot;</span>,
                     </p>
                     <p>
-                      &nbsp;&nbsp;passion: <span className="c-green">&quot;Digital craft&quot;</span>,
+                      &nbsp;&nbsp;<span className="c-blue">passion</span>: <span className="c-green">&quot;Digital craft&quot;</span>,
                     </p>
                     <p>
-                      &nbsp;&nbsp;stacks: [<span className="c-orange">&quot;React&quot;</span>,{" "}
+                      &nbsp;&nbsp;<span className="c-blue">stacks</span>: [<span className="c-orange">&quot;React&quot;</span>,{" "}
                       <span className="c-orange">&quot;Node&quot;</span>,
                     </p>
                     <p>
@@ -98,7 +98,10 @@ export default function About() {
                       <span className="c-orange">&quot;Python&quot;</span>],
                     </p>
                     <p>
-                      &nbsp;&nbsp;available: <span className="c-purple">true</span>,
+                      &nbsp;&nbsp;<span className="c-blue">customize</span>: <span className="c-purple">true</span>,
+                    </p>
+                    <p>
+                      &nbsp;&nbsp;<span className="c-blue">available</span>: <span className="c-purple">true</span>,
                     </p>
                     <p>{"};"}</p>
                     <p className="card-blink">
