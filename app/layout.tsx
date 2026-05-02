@@ -12,12 +12,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rumesh Kumara | Senior Frontend Engineer & UI/UX Designer",
-  description: "Portfolio of Rumesh Kumara - Senior Frontend Engineer and UI/UX Designer specializing in modern web development with React, Next.js, and TypeScript.",
+  title: "Rumesh Kumara | Frontend Engineer & UI/UX Designer",
+  description: "Portfolio of Rumesh Kumara - Frontend Engineer and UI/UX Designer specializing in modern web development with React, Next.js, and TypeScript.",
   keywords: ["Rumesh Kumara", "Frontend Engineer", "UI/UX Designer", "React", "Next.js", "TypeScript"],
   authors: [{ name: "Rumesh Kumara" }],
   openGraph: {
-    title: "Rumesh Kumara | Senior Frontend Engineer & UI/UX Designer",
+    title: "Rumesh Kumara | Frontend Engineer & UI/UX Designer",
     description: "Portfolio of Rumesh Kumara - Senior Frontend Engineer and UI/UX Designer",
     type: "website",
   },
