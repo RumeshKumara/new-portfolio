@@ -82,9 +82,19 @@ export default function DesignCardsSection({ showAll = false }: DesignCardsSecti
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-black text-center">
-            Design Work
-          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-black text-center">
+              Design Work
+            </h2>
+            <a 
+              href="https://linkedin.com/in/rumeshkumara" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center p-3 rounded-2xl bg-[#0a66c2] border border-gray-200 shadow-sm hover:shadow-md hover:border-[#e5cfa8]/30 transition-all duration-300 group"
+            >
+              <Linkedin className="w-8 h-8 text-[#ffffff] group-hover:scale-110 transition-transform" />
+            </a>
+          </div>
           <p className="text-center text-gray-600 mt-5 mb-14 max-w-2xl mx-auto">
             Separate visual explorations placed right after projects.
           </p>
@@ -198,7 +208,7 @@ export default function DesignCardsSection({ showAll = false }: DesignCardsSecti
                 href="/design-work"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-black/85"
+                className="inline-flex items-center justify-center rounded-full bg-black px-10 py-3.5 text-sm tracking-widest text-white transition-all duration-300 hover:bg-black/90 hover:scale-105 active:scale-95 hover:shadow-xl shadow-md"
               >
                 See More
               </Link>
