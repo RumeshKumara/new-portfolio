@@ -77,40 +77,48 @@ export default function Skills() {
           {technologies.map((skill, index) => (
             <div
               key={index}
-              className="group relative flex flex-col items-center justify-center p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-accent-500 dark:hover:border-accent-500 transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="group relative p-[1px] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
-              {skill.logo && (
-                <div className="relative w-16 h-16 mb-4">
-                  <Image
-                    src={skill.logo}
-                    alt={skill.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              )}
-              <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 text-center">
-                {skill.name}
-              </span>
+              {/* Animated Border Background */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_30%,#05cfa8_50%,transparent_70%)]" />
+              </div>
               
-              {/* Category Badge */}
-              {skill.category && (
-                <span className="text-xs px-2 py-0.5 mt-2 rounded-full bg-accent-100 text-accent-700 dark:bg-accent-900/30 dark:text-accent-300">
-                  {skill.category}
+              {/* Card Content */}
+              <div className="relative flex flex-col items-center justify-center p-6 rounded-[calc(0.75rem-1px)] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full w-full z-10">
+                {skill.logo && (
+                  <div className="relative w-16 h-16 mb-4">
+                    <Image
+                      src={skill.logo}
+                      alt={skill.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 text-center">
+                  {skill.name}
                 </span>
-              )}
-              
-              {/* Progress Bar */}
-              <div className="w-full mt-3">
-                <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-accent-500 to-accent-600 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
+                
+                {/* Category Badge */}
+                {skill.category && (
+                  <span className="text-xs px-2 py-0.5 mt-2 rounded-full bg-accent-100 text-accent-700 dark:bg-accent-900/30 dark:text-accent-300">
+                    {skill.category}
+                  </span>
+                )}
+                
+                {/* Progress Bar */}
+                <div className="w-full mt-3">
+                  <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-accent-500 to-accent-600 rounded-full transition-all duration-1000"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 block text-center">
+                    {skill.level}%
+                  </span>
                 </div>
-                <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 block text-center">
-                  {skill.level}%
-                </span>
               </div>
             </div>
           ))}
