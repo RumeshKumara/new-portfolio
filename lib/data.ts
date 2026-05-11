@@ -138,6 +138,16 @@ export const projectsData: Project[] = [
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },
+  {
+    title: "Developer Productivity Tool",
+    description:
+      "Built a productivity-focused developer tool that organized 100+ programming shortcuts and commands into a single searchable interface, reducing lookup time by 60%.",
+    technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
+    category: "Web App",
+    image: "/images/devkeys.png",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+  },
 ];
 
 export interface Experience {

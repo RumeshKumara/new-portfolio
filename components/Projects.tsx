@@ -89,10 +89,10 @@ function DotsBackground() {
 
 /* ─── Category chip colours ─────────────────────────────────────────── */
 const categoryAccent: Record<string, string> = {
-  "UI/UX":   "bg-violet-100 text-violet-700",
-  "Web App": "bg-sky-100 text-sky-700",
-  "Mobile":  "bg-emerald-100 text-emerald-700",
-  "Others":  "bg-amber-100 text-amber-700",
+  "UI/UX":   "bg-violet-500/10 text-violet-500/90 backdrop-blur-md",
+  "Web App": "bg-sky-500/10 text-sky-500/90 backdrop-blur-md",
+  "Mobile":  "bg-emerald-500/10 text-emerald-500/90 backdrop-blur-md",
+  "Others":  "bg-amber-500/10 text-amber-500/90 backdrop-blur-md",
 };
 
 /* ─── Per-category animated border + hover config ───────────────────── */
