@@ -91,7 +91,7 @@ export default function About() {
                   <div className="card-code">
                     <p>
                       <span className="c-purple">const</span>{" "}
-                      <span className="c-blue">alex</span> = {"{"}
+                      <span className="c-blue">rumesh</span> = {"{"}
                     </p>
                     <p>
                       &nbsp;&nbsp;<span className="c-blue">role</span>: <span className="c-green">&quot;Full-Stack Dev&quot;</span>,
@@ -105,7 +105,7 @@ export default function About() {
                     </p>
                     <p>
                       &nbsp;&nbsp;&nbsp;&nbsp;<span className="c-orange">&quot;Next.js&quot;</span>,{" "}
-                      <span className="c-orange">&quot;Python&quot;</span>],
+                      <span className="c-orange">&quot;Express&quot;</span>],
                     </p>
                     <p>
                       &nbsp;&nbsp;<span className="c-blue">customize</span>: <span className="c-purple">true</span>,
@@ -118,7 +118,7 @@ export default function About() {
                       <span className="c-gray">// Ready to build something</span>
                     </p>
                     <p>
-                      <span className="c-blue">alex</span>.build(
+                      <span className="c-blue">rumesh</span>.build(
                       <span className="c-green">&quot;your idea&quot;</span>);{" "}
                       <span className="cursor-blink">▋</span>
                     </p>
