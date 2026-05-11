@@ -45,19 +45,54 @@ const webDesigns = [
 
 const mobileDesigns = [
   {
-    src: "/images/showcase/mobile_app_showcase_1_1777280321265.png",
-    title: "Fitness Tracker",
-    category: "Health & Fitness"
+    src: "/images/showcase/Splash.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
   },
   {
-    src: "/images/showcase/mobile_app_showcase_2_1777280343730.png",
-    title: "Food Delivery",
-    category: "Lifestyle"
+    src: "/images/showcase/Login.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
   },
   {
-    src: "/images/showcase/mobile_app_showcase_3_1777280390539.png",
-    title: "Social Connect",
-    category: "Communication"
+    src: "/images/showcase/Login-Password.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Login-Password-1.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Password-Reset.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Password-Reset-1.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Onboarding.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Homepage.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Categories.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
+  },
+  {
+    src: "/images/showcase/Categories-1.png",
+    title: "Clothing App",
+    category: "E Commerce UI"
   },
 ];
 
@@ -215,19 +250,39 @@ export default function ShowcaseSection() {
                 {/* Mobile Frame (iPhone Style) */}
                 <div className="group relative mx-auto transition-all duration-500 hover:-translate-y-4">
                   {/* Outer Bezel */}
-                  <div className="relative border-[4px] md:border-[6px] border-gray-200 rounded-[3rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.10)] bg-[#f1f1f1] aspect-[9/19.5]">
+                  <div className="relative border-[8px] md:border-[10px] border-[#f8f8f8] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-black aspect-[9/19.5]">
+                    {/* Status Bar */}
+                    <div className="absolute top-0 left-0 right-0 h-10 z-30 flex justify-between items-end px-6 pb-1">
+                      <span className="text-white text-[10px] font-bold">9:41</span>
+                      <div className="flex gap-1 items-center">
+                        <div className="flex gap-[1px]">
+                          <div className="w-[1.5px] h-[5px] bg-white rounded-sm" />
+                          <div className="w-[1.5px] h-[6.5px] bg-white rounded-sm" />
+                          <div className="w-[1.5px] h-[8px] bg-white rounded-sm" />
+                          <div className="w-[1.5px] h-[9.5px] bg-white rounded-sm" />
+                        </div>
+                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a11 11 0 0115.658 0" />
+                        </svg>
+                        <div className="w-4 h-2 border border-white/50 rounded-[2px] relative">
+                          <div className="absolute inset-[1px] bg-white rounded-[1px]" />
+                          <div className="absolute right-[-2.5px] top-1/2 -translate-y-1/2 w-1 h-1 bg-white/50 rounded-full" />
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Notch / Dynamic Island */}
-                    <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 w-16 md:w-24 h-5 md:h-7 bg-[#1d1d1d] rounded-full z-20" />
+                    <div className="absolute top-2 md:top-3 left-1/2 -translate-x-1/2 w-14 md:w-20 h-5 md:h-6 bg-black rounded-full z-40 border border-white/5" />
 
                     {/* Screen Content */}
-                    <div className="relative h-full w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-white">
+                    <div className="relative h-full w-full rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden bg-white">
                       <Image
                         src={item.src}
                         alt={item.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span className="text-[#e8cfa3] text-xs font-bold uppercase tracking-widest mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.category}</span>
                         <h4 className="text-white text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{item.title}</h4>
                         <motion.div
@@ -240,7 +295,7 @@ export default function ShowcaseSection() {
                     </div>
 
                     {/* Home Indicator */}
-                    <div className="absolute bottom-1.5 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-24 h-1 md:h-1.5 bg-gray-300/60 rounded-full z-20" />
+                    
                   </div>
 
                   {/* Glow Effect */}
