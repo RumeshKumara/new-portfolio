@@ -1,24 +1,45 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink, Layout, Smartphone } from "lucide-react";
 
 const webDesigns = [
   {
-    src: "/images/showcase/web_app_showcase_1_1777280275408.png",
-    title: "SaaS Dashboard",
+    src: "/images/showcase/thumbnail_ui.png",
+    title: "Home Automation Dashboard UI",
     category: "Web Application"
   },
   {
-    src: "/images/showcase/web_app_showcase_2_1777280298301.png",
-    title: "Crypto Platform",
-    category: "Fintech"
+    src: "/images/showcase/ui-1.png",
+    title: "Home Automation Dashboard UI",
+    category: "Web Application"
   },
   {
-    src: "/images/showcase/web_app_showcase_3_1777280366472.png",
-    title: "E-Commerce Luxury",
-    category: "Retail"
+    src: "/images/showcase/ui-2.png",
+    title: "Home Automation Dashboard UI",
+    category: "Web Application"
+  },
+  {
+    src: "/images/showcase/ui-3.png",
+    title: "Home Automation Dashboard UI",
+    category: "Web Application"
+  },
+  {
+    src: "/images/showcase/web_app_1.png",
+    title: "Messaging Dashboard UI",
+    category: "Web Application"
+  },
+  {
+    src: "/images/showcase/web_app_2.png",
+    title: "Messaging Dashboard UI",
+    category: "Web Application"
+  },
+  {
+    src: "/images/showcase/web_app_3.png",
+    title: "Messaging Dashboard UI",
+    category: "Web Application"
   },
 ];
 
@@ -41,6 +62,9 @@ const mobileDesigns = [
 ];
 
 export default function ShowcaseSection() {
+  const [isWebHovered, setIsWebHovered] = useState(false);
+  const [isMobileHovered, setIsMobileHovered] = useState(false);
+
   return (
     <section className="relative py-32 overflow-hidden bg-white text-black">
       {/* Decorative Elements */}
@@ -87,7 +111,11 @@ export default function ShowcaseSection() {
           <div className="flex-grow h-px bg-gray-200" />
         </div>
 
-        <div className="relative flex overflow-hidden py-4">
+        <div 
+          className="relative flex overflow-hidden py-4"
+          onMouseEnter={() => setIsWebHovered(true)}
+          onMouseLeave={() => setIsWebHovered(false)}
+        >
           <motion.div
             className="flex whitespace-nowrap"
             animate={{
@@ -97,7 +125,7 @@ export default function ShowcaseSection() {
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 40,
+                duration: isWebHovered ? 120 : 40,
                 ease: "linear",
               },
             }}
@@ -130,7 +158,7 @@ export default function ShowcaseSection() {
                       src={item.src}
                       alt={item.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
                       <span className="text-[#e8cfa3] text-sm font-bold uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.category}</span>
@@ -160,7 +188,11 @@ export default function ShowcaseSection() {
           </div>
         </div>
 
-        <div className="relative flex overflow-hidden py-4">
+        <div 
+          className="relative flex overflow-hidden py-4"
+          onMouseEnter={() => setIsMobileHovered(true)}
+          onMouseLeave={() => setIsMobileHovered(false)}
+        >
           <motion.div
             className="flex whitespace-nowrap"
             animate={{
@@ -170,7 +202,7 @@ export default function ShowcaseSection() {
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 35,
+                duration: isMobileHovered ? 100 : 35,
                 ease: "linear",
               },
             }}
@@ -193,7 +225,7 @@ export default function ShowcaseSection() {
                         src={item.src}
                         alt={item.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span className="text-[#e8cfa3] text-xs font-bold uppercase tracking-widest mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.category}</span>

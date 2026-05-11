@@ -56,7 +56,7 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-accent-700">
                 <p>
-                  I&apos;m a passionate <span className="font-bold text-black brush-highlight">Senior Frontend Engineer</span> and <span className="font-bold text-black brush-highlight">UI/UX Designer</span> with a
+                  I&apos;m a passionate <span className="font-bold text-black brush-highlight">creative aspiring Frontend </span> and <span className="font-bold text-black brush-highlight">UI/UX Designer</span> with a
                   keen eye for detail and a love for creating seamless user
                   experiences. With years of experience in the industry, I
                   specialize in building modern, <span className="font-bold text-black brush-highlight">customized</span>, performant web applications using
