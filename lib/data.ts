@@ -74,6 +74,7 @@ export interface Project {
   category: "UI/UX" | "Web App" | "Mobile" | "Others";
   liveUrl?: string;
   githubUrl?: string;
+  figmaUrl?: string;
   image?: string;
 }
 
@@ -89,14 +90,33 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/rumeshkumara/ecommerce",
   },
   {
-    title: "Task Management App",
+    title: "Mock Interview Web App",
     description:
-      "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "Redux"],
+      "Worked as part of a 3-person development team to design and develop a full-stack AI mock interview platform with dynamic question generation and live answer evaluation, achieving 95% positive user feedback during testing.",
+    technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Drizzle ORM"],
     category: "Web App",
     image: "/images/interviewgenie.jpeg",
-    liveUrl: "https://example.com",
+    liveUrl: "upcoming",
     githubUrl: "https://github.com/rumeshkumara/task-app",
+  },
+  {
+    title: "Smart Blood Bank Management System",
+    description:
+      "Collaborated in a 4-member team to develop a centralized blood bank management system for Ratnapura General Hospital, streamlining blood donor management, inventory tracking, and donation campaigns for improved operational efficiency.",
+    technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Firebase Authentication"],
+    category: "Web App",
+    image: "/images/blood-bank.png",
+    liveUrl: "upcoming",
+    githubUrl: "https://github.com/rumeshkumara/task-app",
+  },
+  {
+    title: "UI Kit for Blood Bank Management System",
+    description:
+      "Collaborated in a 4-member team to develop a centralized blood bank management system for Ratnapura General Hospital, streamlining blood donor management, inventory tracking, and donation campaigns for improved operational efficiency.",
+    technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Firebase Authentication"],
+    category: "Web App",
+    image: "/images/blood-bank.png",
+    figmaUrl: "https://github.com/rumeshkumara/task-app",
   },
   {
     title: "Social Media Dashboard",
@@ -105,8 +125,7 @@ export const projectsData: Project[] = [
     technologies: ["Next.js", "TypeScript", "Chart.js", "Tailwind CSS"],
     category: "UI/UX",
     image: "/images/tailwind.png",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/dashboard",
+    figmaUrl: "https://www.figma.com/community/file/...",
   },
   {
     title: "Weather Forecast App",
@@ -119,12 +138,12 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/rumeshkumara/weather-app",
   },
   {
-    title: "Portfolio CMS",
+    title: "VS Code Extension",
     description:
-      "Content management system for portfolio websites with drag-and-drop editor, SEO optimization, and responsive templates.",
-    technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
+      "Collaborated in a 3-member team to design and develop an AI-powered Visual Studio Code extension that analyzed coding habits, productivity patterns, and developer activity, helping improve developer efficiency and well-being.",
+    technologies: ["Chart.js", "TypeScript", "VS Code API",],
     category: "Others",
-    image: "/images/vscode.jpeg",
+    image: "/images/vscode.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/portfolio-cms",
   },
@@ -147,6 +166,25 @@ export const projectsData: Project[] = [
     image: "/images/devkeys.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+  },
+  {
+    title: "Briefly: AI Content Summarizer",
+    description:
+      "Built a productivity-focused developer tool that organized 100+ programming shortcuts and commands into a single searchable interface, reducing lookup time by 60%.",
+    technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
+    category: "Others",
+    image: "/images/briefly.png",
+    liveUrl: "upcoming",
+    githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+  },
+  {
+    title: "UI Kit for Chrome Extension",
+    description:
+      "Built a productivity-focused developer tool that organized 100+ programming shortcuts and commands into a single searchable interface, reducing lookup time by 60%.",
+    technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
+    category: "UI/UX",
+    image: "/images/briefly.png",
+    figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },
 ];
 

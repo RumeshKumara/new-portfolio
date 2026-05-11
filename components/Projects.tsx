@@ -3,7 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { projectsData, Project } from "@/lib/data";
-import { Github, ArrowUpRight, X, ExternalLink } from "lucide-react";
+import { Github, ArrowUpRight, X, ExternalLink, Figma } from "lucide-react";
 import Image from "next/image";
 
 type Category = "All" | "UI/UX" | "Web App" | "Mobile" | "Others";
@@ -280,6 +280,17 @@ function ProjectModal({
                   GitHub
                 </a>
               )}
+              {project.figmaUrl && (
+                <a
+                  href={project.figmaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold bg-[#F24E1E] text-white hover:opacity-90 transition-opacity duration-200"
+                >
+                  <Figma size={14} />
+                  Figma
+                </a>
+              )}
             </div>
           </div>
         </motion.div>
@@ -458,6 +469,17 @@ function ProjectCard({
                 GitHub
               </a>
             )}
+            {project.figmaUrl && (
+              <a
+                href={project.figmaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-semibold transition-colors bg-[#F24E1E] text-white px-3 py-1.5 rounded-full duration-200 ml-auto"
+              >
+                <Figma size={14} />
+                Figma
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -520,7 +542,7 @@ export default function Projects() {
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <ProjectCard
-                key={project.title}
+                key={`${project.title}-${project.category}-${index}`}
                 project={project}
                 index={index}
                 isInView={isInView}
