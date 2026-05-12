@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">
+        <LoadingScreen />
         <NavbarWrapper />
         <main>{children}</main>
         <Footer />

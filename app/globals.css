@@ -86,6 +86,19 @@ body {
   background: #555;
 }
 
+/* Hide scrollbar only while loading screen is active */
+html:has(body.loader-active),
+body.loader-active {
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html:has(body.loader-active)::-webkit-scrollbar,
+body.loader-active::-webkit-scrollbar {
+  display: none;
+}
+
 /* Star border animation */
 @keyframes border-rotate {
   0% {
@@ -420,5 +433,392 @@ body {
   .about-card-stack,
   .cursor-blink {
     animation: none;
+  }
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+
+/* --- Overlay --- */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+  overflow: hidden;
+  animation: loader-fade-in 0.4s ease forwards;
+}
+
+.loader-exit {
+  animation: loader-slide-out 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes loader-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loader-slide-out {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* --- Grid background --- */
+.loader-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* --- Floating orbs --- */
+.loader-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: loader-orb-pulse 4s ease-in-out infinite;
+}
+
+.loader-orb-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(232, 207, 163, 0.18), transparent 70%);
+  top: -100px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.loader-orb-2 {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(92, 250, 142, 0.12), transparent 70%);
+  bottom: -80px;
+  right: -60px;
+  animation-delay: 1.4s;
+}
+
+.loader-orb-3 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(130, 170, 255, 0.10), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.7s;
+}
+
+@keyframes loader-orb-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.loader-orb-3 {
+  animation-name: loader-orb-pulse-centered;
+}
+
+@keyframes loader-orb-pulse-centered {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* --- Center content --- */
+.loader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  animation: loader-content-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes loader-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loader-content-exit {
+  animation: loader-content-out 0.5s ease forwards;
+}
+
+@keyframes loader-content-out {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* --- Avatar --- */
+.loader-avatar-wrap {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.loader-avatar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid rgba(232, 207, 163, 0.6);
+  box-shadow:
+    0 0 0 4px rgba(232, 207, 163, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+.loader-avatar-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Pulsing rings */
+.loader-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 207, 163, 0.3);
+  animation: loader-ring-expand 2.4s ease-out infinite;
+}
+
+.loader-ring-1 {
+  width: 110px;
+  height: 110px;
+  animation-delay: 0s;
+}
+
+.loader-ring-2 {
+  width: 130px;
+  height: 130px;
+  animation-delay: 0.6s;
+}
+
+.loader-ring-3 {
+  width: 150px;
+  height: 150px;
+  animation-delay: 1.2s;
+}
+
+@keyframes loader-ring-expand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* --- Text --- */
+.loader-name {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.loader-tagline {
+  font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 207, 163, 0.8);
+  text-align: center;
+  margin: 0;
+}
+
+/* --- Progress bar --- */
+.loader-bar-wrap {
+  width: 180px;
+  height: 2px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.loader-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #e8cfa3, #5cfa8e, #82aaff);
+  animation: loader-bar-fill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loader-bar-fill {
+  0% {
+    width: 0%;
+  }
+
+  60% {
+    width: 85%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* --- Dot pulse --- */
+.loader-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 0.15rem;
+}
+
+.loader-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  animation: loader-dot-bounce 1.2s ease-in-out infinite;
+}
+
+.loader-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loader-dot-bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+
+  40% {
+    transform: scale(1.6);
+    opacity: 1;
+    background: #e8cfa3;
+  }
+}
+
+/* --- Corner decorations --- */
+.loader-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(232, 207, 163, 0.35);
+  border-style: solid;
+  animation: loader-corner-in 0.6s ease 0.3s both;
+}
+
+@keyframes loader-corner-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loader-corner-tl {
+  top: 24px;
+  left: 24px;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 3px 0 0 0;
+}
+
+.loader-corner-tr {
+  top: 24px;
+  right: 24px;
+  border-width: 1.5px 1.5px 0 0;
+  border-radius: 0 3px 0 0;
+}
+
+.loader-corner-bl {
+  bottom: 24px;
+  left: 24px;
+  border-width: 0 0 1.5px 1.5px;
+  border-radius: 0 0 0 3px;
+}
+
+.loader-corner-br {
+  bottom: 24px;
+  right: 24px;
+  border-width: 0 1.5px 1.5px 0;
+  border-radius: 0 0 3px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .loader-overlay,
+  .loader-exit,
+  .loader-orb,
+  .loader-ring,
+  .loader-bar,
+  .loader-dots span,
+  .loader-corner {
+    animation: none;
+  }
+
+  .loader-bar {
+    width: 100%;
   }
 }
