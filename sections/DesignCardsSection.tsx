@@ -8,13 +8,22 @@ import { Figma, Linkedin, Heart } from "lucide-react";
 
 const designCards = [
   {
-    title: "Mobile Navbar Exploration",
+    title: "Smart Home Dashboard: Theme Exploration",
+    tag: "Dashboard UI Design",
+    description: "A comprehensive exploration of a smart home interface across three distinct styles: modern Glassmorphism, a clean Light UI, and a high-contrast Dark mode.",
+    image: "/images/figma/thumbnail-ui.png",
+    alt: "Comparison of Glassmorphism, Light, and Dark Smart Home UI designs",
+    figmaUrl: "https://www.figma.com/design/tjrjGsWEFnOflss4Z2bWH0/Untitled?node-id=0-1&p=f&t=eRWvGY76nxxHUNZF-0",
+    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_which-smart-home-ui-do-you-like-most-activity-7459447160560979968-pwsn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI6bb72a5_uiux-uidesign-uxdesign-activity-7436980304327790593-6dHH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
+  },
+  {
+    title: "Travel Card Design ",
     tag: "UX/UI Case Study",
-    description: "A mobile-first navigation concept focused on icon clarity, active-state emphasis, and contrast in both light and dark variants.",
-    image: "/images/figma/mobile-navbar.png",
-    alt: "Mobile navbar UI exploration",
+    description: "A travel app card concept that emphasizes destination imagery, concise information hierarchy, and clear call-to-action elements.",
+    image: "/images/figma/travel_card.png",
+    alt: "Travel app card UI concept",
     figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
-    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7436980304327790593-6dHH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
+    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7435893041242071040-a6dt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
   },
   {
     title: "Pizza Product Card UI",
@@ -24,6 +33,15 @@ const designCards = [
     alt: "Pizza app product card UI concept",
     figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
     linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uxdesign-uiux-productdesign-activity-7440964585064656896-wR8h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
+  },
+  {
+    title: "Mobile Navbar Exploration",
+    tag: "UX/UI Case Study",
+    description: "A mobile-first navigation concept focused on icon clarity, active-state emphasis, and contrast in both light and dark variants.",
+    image: "/images/figma/mobile-navbar.png",
+    alt: "Mobile navbar UI exploration",
+    figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
+    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7436980304327790593-6dHH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
   },
   {
     title: "Pizza Product Card UI",
@@ -43,15 +61,7 @@ const designCards = [
     figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
     linkedinUrl: "https://www.linkedin.com/",
   },
-  {
-    title: "Travel Card Design ",
-    tag: "UX/UI Case Study",
-    description: "A travel app card concept that emphasizes destination imagery, concise information hierarchy, and clear call-to-action elements.",
-    image: "/images/figma/travel_card.png",
-    alt: "Travel app card UI concept",
-    figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
-    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7435893041242071040-a6dt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
-  },
+  
   {
     title: "Profile UX Case Study",
     tag: "UX/UI Case Study",
@@ -70,15 +80,7 @@ const designCards = [
     figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
     linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7448574516059979776-WQCJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
   },
-  {
-    title: "Travel Card: Solid vs. Glassmorphism",
-    tag: "Visual Exploration",
-    description: "A side-by-side UI comparison exploring the impact of glassmorphism on readability and depth versus a clean, solid card layout..",
-    image: "/images/figma/glass_card.png",
-    alt: "Comparison of solid and glassmorphism travel card UI",
-    figmaUrl: "https://www.figma.com/design/HYg142GDqepDD1HzqaoOkJ/Linkedin?m=auto&t=eRWvGY76nxxHUNZF-6",
-    linkedinUrl: "https://www.linkedin.com/posts/rumesh-kumara-166bb72a5_uiux-uidesign-uxdesign-activity-7449298566881185792-npn4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEmuvx4BaPiDfJySGo51uhKWGJWsWw4IjFI",
-  },
+  
 ];
 
 interface DesignCardsSectionProps {
