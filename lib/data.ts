@@ -127,14 +127,13 @@ export const projectsData: Project[] = [
     figmaUrl: "https://www.figma.com/community/file/...",
   },
   {
-    title: "Weather Forecast App",
+    title: "E Commerce Mobile App UI Design",
     description:
       "Beautiful weather application with location-based forecasts, detailed weather information, and interactive maps.",
-    technologies: ["React", "TypeScript", "OpenWeather API", "CSS3"],
-    category: "Mobile",
-    image: "/images/travel.png",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/weather-app",
+    technologies: ["Figma"],
+    category: "UI/UX",
+    image: "/images/e-commerce.png",
+    figmaUrl: "https://github.com/rumeshkumara/weather-app",
   },
   {
     title: "VS Code Extension",
@@ -147,14 +146,13 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/rumeshkumara/portfolio-cms",
   },
   {
-    title: "Fitness Tracker",
+    title: "Smart Salon Appointment Booking System Web UI",
     description:
       "Comprehensive fitness tracking application with workout plans, progress tracking, nutrition logging, and goal setting.",
-    technologies: ["React Native", "Node.js", "MongoDB", "Express"],
+    technologies: ["Figma"],
     category: "Mobile",
-    image: "/images/login.png",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+    image: "/images/salon.png",
+    figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },
   {
     title: "Developer Productivity Tool",
