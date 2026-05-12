@@ -95,7 +95,7 @@ export const projectsData: Project[] = [
       "Worked as part of a 3-person development team to design and develop a full-stack AI mock interview platform with dynamic question generation and live answer evaluation, achieving 95% positive user feedback during testing.",
     technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Drizzle ORM"],
     category: "Web App",
-    image: "/images/interviewgenie.jpeg",
+    image: "/images/interviewgenie.png",
     liveUrl: "upcoming",
     githubUrl: "https://github.com/rumeshkumara/task-app",
   },
