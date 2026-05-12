@@ -86,7 +86,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/home-dashboard.png",
-    figmaUrl: "https://github.com/rumeshkumara/ecommerce",
+    figmaUrl: "https://www.figma.com/design/tjrjGsWEFnOflss4Z2bWH0/Untitled?m=auto&t=eRWvGY76nxxHUNZF-6",
   },
   {
     title: "Mock Interview Web App",
@@ -96,7 +96,7 @@ export const projectsData: Project[] = [
     category: "Web App",
     image: "/images/interviewgenie.png",
     liveUrl: "upcoming",
-    githubUrl: "https://github.com/rumeshkumara/task-app",
+    githubUrl: "https://github.com/InterviewGenie-SUSL/interview-mocker-application",
   },
   {
     title: "Smart Blood Bank Management System",
@@ -106,7 +106,7 @@ export const projectsData: Project[] = [
     category: "Web App",
     image: "/images/blood-bank.png",
     liveUrl: "upcoming",
-    githubUrl: "https://github.com/rumeshkumara/task-app",
+    githubUrl: "https://github.com/InterviewGenie-SUSL/interview-mocker-application",
   },
   {
     title: "UI Kit for Blood Bank Management System",
@@ -115,7 +115,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/blood-bank.png",
-    figmaUrl: "https://github.com/rumeshkumara/task-app",
+    figmaUrl: "https://www.figma.com/design/G38YN8nMkc5vwMc3eLt2nT/Community-Project?m=auto&t=eRWvGY76nxxHUNZF-6",
   },
   {
     title: "Real-Time Messaging Dashboard",
@@ -124,7 +124,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/message-dashboard.png",
-    figmaUrl: "https://www.figma.com/community/file/...",
+    figmaUrl: "https://www.figma.com/design/3tRvWrcNNeTbCx2UtkQoY6/glass-dashboard?m=auto&t=eRWvGY76nxxHUNZF-6",
   },
   {
     title: "E Commerce Mobile App UI Design",
@@ -133,7 +133,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/e-commerce.png",
-    figmaUrl: "https://github.com/rumeshkumara/weather-app",
+    figmaUrl: "https://www.figma.com/design/EyiOjPxSDiYfUicTtnowFj/E-commerce-Mobile-App?m=auto&t=eRWvGY76nxxHUNZF-6",
   },
   {
     title: "VS Code Extension",
@@ -142,8 +142,8 @@ export const projectsData: Project[] = [
     technologies: ["Chart.js", "TypeScript", "VS Code API",],
     category: "Others",
     image: "/images/vscode.png",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/portfolio-cms",
+    liveUrl: "upcoming",
+    githubUrl: "https://github.com/CodeFlow-SUSL/codeflow-ai-susl",
   },
   {
     title: "Smart Salon Appointment Booking System Web UI",
@@ -152,7 +152,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/salon.png",
-    figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
+    figmaUrl: "https://www.figma.com/design/Tj8A7K2lFVOjaXpDdSasUr/Salon?m=auto&t=eRWvGY76nxxHUNZF-6",
   },
   {
     title: "Developer Productivity Tool",
@@ -161,8 +161,8 @@ export const projectsData: Project[] = [
     technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
     category: "Web App",
     image: "/images/devkeys.png",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+    liveUrl: "https://devkeys-plum.vercel.app/",
+    githubUrl: "https://github.com/RumeshKumara/devkeys",
   },
   {
     title: "Briefly: AI Content Summarizer",
@@ -172,7 +172,7 @@ export const projectsData: Project[] = [
     category: "Others",
     image: "/images/briefly.png",
     liveUrl: "upcoming",
-    githubUrl: "https://github.com/rumeshkumara/fitness-tracker",
+    githubUrl: "https://github.com/RumeshKumara/briefly-ai-chrome-extension",
   },
   {
     title: "UI Kit for Chrome Extension",
@@ -181,7 +181,7 @@ export const projectsData: Project[] = [
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/briefly.png",
-    figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
+    figmaUrl: "https://www.figma.com/design/gbGv6IvOTegOMUdMr7OeXl/Chrome-extension?t=eRWvGY76nxxHUNZF-0",
   },
 ];
 
