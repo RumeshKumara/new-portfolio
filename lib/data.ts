@@ -82,7 +82,7 @@ export const projectsData: Project[] = [
   {
     title: "Smart Home Automation Dashboard",
     description:
-      "A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
+      "A comprehensive UI/UX design for a smart home automation dashboard, allowing users to control lighting, climate, security, and appliances from a single, intuitive interface.",
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/home-dashboard.png",
@@ -111,16 +111,16 @@ export const projectsData: Project[] = [
   {
     title: "UI Kit for Blood Bank Management System",
     description:
-      "Collaborated in a 4-member team to develop a centralized blood bank management system for Ratnapura General Hospital, streamlining blood donor management, inventory tracking, and donation campaigns for improved operational efficiency.",
-    technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Firebase Authentication"],
-    category: "Web App",
+      "Designed a comprehensive UI kit for the Smart Blood Bank Management System, including intuitive dashboards for hospital staff, donor registration flows, and inventory management interfaces.",
+    technologies: ["Figma"],
+    category: "UI/UX",
     image: "/images/blood-bank.png",
     figmaUrl: "https://github.com/rumeshkumara/task-app",
   },
   {
     title: "Real-Time Messaging Dashboard",
     description:
-      "Analytics dashboard for social media metrics with beautiful charts, real-time data visualization, and export functionality.",
+      "Designed a sleek and modern real-time messaging dashboard with focus on user experience, featuring contact lists, chat interfaces, and media sharing capabilities.",
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/message-dashboard.png",
@@ -129,7 +129,7 @@ export const projectsData: Project[] = [
   {
     title: "E Commerce Mobile App UI Design",
     description:
-      "Beautiful weather application with location-based forecasts, detailed weather information, and interactive maps.",
+      "A clean and intuitive mobile app UI design for an e-commerce platform, focusing on seamless product discovery, easy checkout process, and personalized user profiles.",
     technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/e-commerce.png",
@@ -148,9 +148,9 @@ export const projectsData: Project[] = [
   {
     title: "Smart Salon Appointment Booking System Web UI",
     description:
-      "Comprehensive fitness tracking application with workout plans, progress tracking, nutrition logging, and goal setting.",
+      "Designed a user-friendly web interface for a salon booking system, allowing clients to browse services, select stylists, and book appointments with ease.",
     technologies: ["Figma"],
-    category: "Mobile",
+    category: "UI/UX",
     image: "/images/salon.png",
     figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
   },
@@ -167,7 +167,7 @@ export const projectsData: Project[] = [
   {
     title: "Briefly: AI Content Summarizer",
     description:
-      "Built a productivity-focused developer tool that organized 100+ programming shortcuts and commands into a single searchable interface, reducing lookup time by 60%.",
+      "An AI-powered application that leverages the Gemini API to summarize long-form content, articles, and documents into concise, readable summaries.",
     technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
     category: "Others",
     image: "/images/briefly.png",
@@ -177,8 +177,8 @@ export const projectsData: Project[] = [
   {
     title: "UI Kit for Chrome Extension",
     description:
-      "Built a productivity-focused developer tool that organized 100+ programming shortcuts and commands into a single searchable interface, reducing lookup time by 60%.",
-    technologies: ["Next.js", "Node.js", "Firebase", "Express", "Tailwind CSS", "Gemini API"],
+      "Designed a versatile UI kit for a Chrome extension, featuring customizable components, clear navigation, and a modern aesthetic to enhance extension usability.",
+    technologies: ["Figma"],
     category: "UI/UX",
     image: "/images/briefly.png",
     figmaUrl: "https://github.com/rumeshkumara/fitness-tracker",
@@ -195,35 +195,19 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
-    position: "Senior Frontend Engineer",
-    company: "Tech Solutions Inc.",
+    position: "Software Engineer Intern",
+    company: "DirectFN Lanka",
+    period: "Feb 2024 - Aug 2024",
+    description:
+      "Gained hands-on experience in full-stack development, contributing to the development of financial technology solutions and collaborating with cross-functional teams to deliver high-quality software.",
+    technologies: ["Java", "Spring Boot", "React", "MySQL", "Git"],
+  },
+  {
+    position: "Freelance UI/UX Designer",
+    company: "Self-employed",
     period: "2022 - Present",
     description:
-      "Leading frontend development team, architecting scalable React applications, mentoring junior developers, and implementing best practices across projects. Successfully delivered 15+ enterprise-level applications.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
-  },
-  {
-    position: "Frontend Engineer",
-    company: "Digital Innovations Ltd.",
-    period: "2020 - 2022",
-    description:
-      "Developed and maintained multiple client-facing applications, collaborated with UX/UI designers to implement pixel-perfect designs, and optimized application performance resulting in 40% faster load times.",
-    technologies: ["React", "Vue.js", "JavaScript", "SCSS", "Node.js"],
-  },
-  {
-    position: "UI/UX Designer & Developer",
-    company: "Creative Agency Co.",
-    period: "2018 - 2020",
-    description:
-      "Designed and developed responsive websites and web applications, created design systems and component libraries, and conducted user research to improve product usability.",
-    technologies: ["HTML", "CSS", "JavaScript", "Figma", "Adobe XD"],
-  },
-  {
-    position: "Junior Frontend Developer",
-    company: "StartUp Hub",
-    period: "2017 - 2018",
-    description:
-      "Assisted in building responsive web applications, worked closely with senior developers to learn best practices, and contributed to open-source projects to enhance team capabilities.",
-    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "jQuery"],
+      "Designing intuitive and visually appealing user interfaces for various web and mobile applications, focusing on user-centered design principles and creating seamless digital experiences.",
+    technologies: ["Figma", "Adobe XD", "Illustrator", "Photoshop"],
   },
 ];
