@@ -80,14 +80,13 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Smart Home Automation Dashboard",
     description:
       "A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB"],
+    technologies: ["Figma"],
     category: "UI/UX",
-    image: "/images/commercial.jpeg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/rumeshkumara/ecommerce",
+    image: "/images/home-dashboard.png",
+    figmaUrl: "https://github.com/rumeshkumara/ecommerce",
   },
   {
     title: "Mock Interview Web App",
@@ -119,12 +118,12 @@ export const projectsData: Project[] = [
     figmaUrl: "https://github.com/rumeshkumara/task-app",
   },
   {
-    title: "Social Media Dashboard",
+    title: "Real-Time Messaging Dashboard",
     description:
       "Analytics dashboard for social media metrics with beautiful charts, real-time data visualization, and export functionality.",
-    technologies: ["Next.js", "TypeScript", "Chart.js", "Tailwind CSS"],
+    technologies: ["Figma"],
     category: "UI/UX",
-    image: "/images/tailwind.png",
+    image: "/images/message-dashboard.png",
     figmaUrl: "https://www.figma.com/community/file/...",
   },
   {
