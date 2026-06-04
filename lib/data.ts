@@ -76,6 +76,7 @@ export interface Project {
   githubUrl?: string;
   figmaUrl?: string;
   image?: string;
+  status?: "ongoing" | "upcoming" | "live" | "archived";
 }
 
 export const projectsData: Project[] = [
@@ -96,6 +97,7 @@ export const projectsData: Project[] = [
     category: "Web App",
     image: "/images/interviewgenie.png",
     liveUrl: "upcoming",
+    status: "ongoing",
     githubUrl: "https://github.com/InterviewGenie-SUSL/interview-mocker-application",
   },
   {
@@ -106,6 +108,7 @@ export const projectsData: Project[] = [
     category: "Web App",
     image: "/images/blood-bank.png",
     liveUrl: "upcoming",
+    status: "ongoing",
     githubUrl: "https://github.com/InterviewGenie-SUSL/interview-mocker-application",
   },
   {
@@ -143,6 +146,7 @@ export const projectsData: Project[] = [
     category: "Others",
     image: "/images/vscode.png",
     liveUrl: "upcoming",
+    status: "ongoing",
     githubUrl: "https://github.com/CodeFlow-SUSL/codeflow-ai-susl",
   },
   {
@@ -172,6 +176,7 @@ export const projectsData: Project[] = [
     category: "Others",
     image: "/images/briefly.png",
     liveUrl: "upcoming",
+    status: "ongoing",
     githubUrl: "https://github.com/RumeshKumara/briefly-ai-chrome-extension",
   },
   {
@@ -182,6 +187,15 @@ export const projectsData: Project[] = [
     category: "UI/UX",
     image: "/images/briefly.png",
     figmaUrl: "https://www.figma.com/design/gbGv6IvOTegOMUdMr7OeXl/Chrome-extension?t=eRWvGY76nxxHUNZF-0",
+  },
+  {
+    title: "AI-powered personal productivity dashboard UI Kit",
+    description:
+      "AI-powered personal productivity dashboard built with React.js and Next.js featuring task management, smart notes, calendar planning, productivity analytics, Pomodoro focus mode, and AI chatbot integration.",
+    technologies: ["Figma"],
+    category: "UI/UX",
+    image: "/images/lifeflow.png",
+    figmaUrl: "https://www.figma.com/design/YTZYoLNQPZ1SpQHtkoX514/LifeFlow?node-id=1-48&t=GHFL3TgdWMJSRwpl-0",
   },
 ];
 

@@ -95,6 +95,13 @@ const categoryAccent: Record<string, string> = {
   "Others":  "bg-amber-500/10 text-amber-500/90 backdrop-blur-md",
 };
 
+const statusAccent: Record<string, string> = {
+  ongoing: "bg-emerald-100 text-emerald-700",
+  upcoming: "bg-amber-100 text-amber-700",
+  live: "bg-sky-100 text-sky-700",
+  archived: "bg-gray-100 text-gray-600",
+};
+
 /* ─── Per-category animated border + hover config ───────────────────── */
 const categoryConfig: Record<string, {
   borderGradient: string;
@@ -224,13 +231,20 @@ function ProjectModal({
               >
                 {project.title}
               </h2>
-              <span
-                className={`shrink-0 mt-1 px-3 py-1 rounded-full text-xs font-semibold ${
-                  categoryAccent[project.category] ?? "bg-gray-100 text-gray-600"
-                }`}
-              >
-                {project.category}
-              </span>
+              <div className="flex items-center gap-3">
+                {project.status && (
+                  <span className={`shrink-0 mt-1 px-3 py-1 rounded-full text-xs font-semibold ${statusAccent[project.status] ?? 'bg-gray-100 text-gray-600'}`}>
+                    {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+                  </span>
+                )}
+                <span
+                  className={`shrink-0 mt-1 px-3 py-1 rounded-full text-xs font-semibold ${
+                    categoryAccent[project.category] ?? "bg-gray-100 text-gray-600"
+                  }`}
+                >
+                  {project.category}
+                </span>
+              </div>
             </div>
 
             {/* Description */}
@@ -396,6 +410,16 @@ function ProjectCard({
           >
             {project.category}
           </span>
+          {/* Status badge */}
+          {project.status && (
+            <span
+              className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold z-10 ${
+                statusAccent[project.status] ?? "bg-gray-100 text-gray-600"
+              }`}
+            >
+              {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+            </span>
+          )}
         </div>
 
         {/* ── Content ── */}
