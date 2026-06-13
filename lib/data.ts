@@ -75,6 +75,7 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   figmaUrl?: string;
+  pdfUrl?: string;
   image?: string;
   status?: "ongoing" | "upcoming" | "live" | "archived";
 }
@@ -196,6 +197,16 @@ export const projectsData: Project[] = [
     category: "UI/UX",
     image: "/images/lifeflow.png",
     figmaUrl: "https://www.figma.com/design/YTZYoLNQPZ1SpQHtkoX514/LifeFlow?node-id=1-48&t=GHFL3TgdWMJSRwpl-0",
+  },
+  {
+    title: "SmartBank - AI-Enhanced Mobile Banking Experience",
+    description:
+      "A comprehensive mobile banking application with advanced security, AI-powered financial insights, personalized banking experience, seamless fund transfers, smart savings goals, and intuitive money management tools.",
+    technologies: ["Figma"],
+    category: "UI/UX",
+    image: "/images/smartbank.png",
+    figmaUrl: "https://www.figma.com/design/GbjyyD24CnTfT8LrRegM4K/Mobile-Bank-App?node-id=0-1&p=f&t=wdSMXwkIGyf74hz3-0",
+    pdfUrl: "https://drive.google.com/drive/folders/1RJiX-MEb1ojZBfoO1bJzafU7dp6V4r8K",
   },
 ];
 

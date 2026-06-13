@@ -3,7 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { projectsData, Project } from "@/lib/data";
-import { Github, ArrowUpRight, X, ExternalLink, Figma } from "lucide-react";
+import { Github, ArrowUpRight, X, ExternalLink, Figma, FileText } from "lucide-react";
 import Image from "next/image";
 
 type Category = "All" | "UI/UX" | "Web App" | "Mobile" | "Others";
@@ -305,6 +305,17 @@ function ProjectModal({
                   Figma
                 </a>
               )}
+              {project.pdfUrl && (
+                <a
+                  href={project.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold bg-[#3565ea] text-white hover:opacity-90 transition-opacity duration-200"
+                >
+                  <FileText size={14} />
+                  Case Study
+                </a>
+              )}
             </div>
           </div>
         </motion.div>
@@ -502,6 +513,17 @@ function ProjectCard({
               >
                 <Figma size={14} />
                 Figma
+              </a>
+            )}
+            {project.pdfUrl && (
+              <a
+                href={project.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-semibold transition-colors bg-[#3565ea] text-white px-3 py-1.5 rounded-full duration-200 ml-auto"
+              >
+                <FileText size={14} />
+                Case Study
               </a>
             )}
           </div>
